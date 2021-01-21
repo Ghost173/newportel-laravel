@@ -57,7 +57,7 @@
                         <td> {{$cat->category_en}} </td>
                         <td> {{$cat->category_ta}} </td>
                         <td> 
-                            <a href="" class="btn btn-info">Edit</a>
+                            <a href="{{route('edit.category', $cat->id)}}" class="btn btn-info">Edit</a>
                             <a href="" class="btn btn-danger">Delete</a>
 
                         </td>
@@ -65,6 +65,7 @@
                     @endforeach
                 </tbody>
               </table>
+              {{-- {{$category->links()}} --}}
             </div>
           </div>
         </div>

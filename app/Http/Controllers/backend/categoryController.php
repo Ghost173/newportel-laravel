@@ -33,8 +33,37 @@ class categoryController extends Controller
 
         DB::table('categories')->insert($data);
 
-        return redirect()->route('categories');
+        $notification = array(
+            'message' => 'category created successfully',
+            'alert-type' => 'success'
+        );
+        return redirect()->route('categories')->with($notification );
 
+    }
+
+
+    public function EditCategory($id) {
+        $category = DB::table('categories')->where('id',$id)->first();
+        return view('backend.category.edit',compact('category'));
+    }
+
+    public function updateCategory(Request $request, $id) {
+        $validated = $request->validate([
+            'category_en' => 'required|max:255',
+            'category_ta' => 'required|max:255',
+        ]);
+
+        $data = array();
+        $data['category_en'] = $request->category_en;
+        $data['category_ta'] = $request->category_ta;
+
+        DB::table('categories')->where('id',$id)->update($data);
+
+        $notification = array(
+            'message' => 'category updated successfully',
+            'alert-type' => 'success'
+        );
+        return redirect()->route('categories')->with($notification );
     }
 }
 
