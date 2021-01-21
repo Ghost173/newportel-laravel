@@ -12,7 +12,8 @@
                 <img src="{{asset('backend/assets/images/dashboard/Group126@2x.png')}}" class="gradient-corona-img img-fluid" alt="">
               </div>
               <div class="col-5 col-sm-7 col-xl-8 p-0">
-                <p class="mb-0 font-weight-normal d-none d-sm-block">YOUR ARE IN CATEGORY PAGE</p>
+                <h4 class="mb-1 mb-sm-0">YOUR ARE IN CATEGORY PAGE</h4>
+                {{-- <p class="mb-0 font-weight-normal d-none d-sm-block">YOUR ARE IN CATEGORY PAGE</p> --}}
               </div>
               <div class="col-3 col-sm-2 col-xl-2 pl-0 text-center">
                 <span>
@@ -32,7 +33,7 @@
             <h4 class="card-title">Category  Page</h4>
 
             <div class="template-demo">
-                <a href="">
+                <a href="{{route('add.category')}}">
                     <button type="button" class="btn btn-primary btn-rounded btn-fw" style="float: right;">Add Category</button>
                 </a>
             </div>
