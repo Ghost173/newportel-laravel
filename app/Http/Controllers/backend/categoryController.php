@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\DB;
 class categoryController extends Controller
 {
     public function index() {
-        $category = DB::table('categories')->orderBy('id','desc')->paginate(3);
+        $category = DB::table('categories')->orderBy('id','desc')->paginate(10);
         return view('backend.category.index',compact('category'));
     }
 

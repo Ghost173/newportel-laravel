@@ -65,7 +65,7 @@
                     @endforeach
                 </tbody>
               </table>
-              {{$category->links()}}
+              {{$category->links('pagination-link')}}
             </div>
           </div>
         </div>
