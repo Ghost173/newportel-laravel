@@ -34,7 +34,7 @@
           <div class="card-body">
             <h4 class="card-title">Update subcategory</h4>
             {{-- {{route('update.category', $category->id)}} --}}
-            <form class="forms-sample" method="POST" action="">
+            <form class="forms-sample" method="POST" action="{{route('update.subcategory', $subcategory->id)}}">
 
               <div class="form-group">
                   @csrf

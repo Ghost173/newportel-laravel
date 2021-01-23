@@ -53,5 +53,38 @@ class SubCategoryController extends Controller
     }
     
 
+    public function updatesubCategory(Request $request, $id) {
+        $validated = $request->validate([
+            'subcategory_en' => 'required|max:255',
+            'subcategory_ta' => 'required|max:255',
+            'category_id' => 'required'
+
+        ]);
+
+        $data = array();
+        $data['subcategory_en'] = $request->subcategory_en;
+        $data['subcategory_ta'] = $request->subcategory_ta;
+        $data['category_id'] = $request->category_id;
+
+        DB::table('sub_categories')->where('id',$id)->update($data);
+
+        $notification = array(
+            'message' => 'subcategory updated successfully',
+            'alert-type' => 'success'
+        );
+        return redirect()->route('subcategories')->with($notification );
+    }
+
+
+    public function deletesubCategory($id) {
+        DB::table('sub_categories')->where('id', $id)->delete();
+
+        $notification = array(
+            'message' => 'sub category Deleted successfully',
+            'alert-type' => 'error'
+        );
+        return redirect()->route('subcategories')->with($notification );
+    }
+
     
 }
