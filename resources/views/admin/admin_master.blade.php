@@ -19,6 +19,8 @@
     <!-- endinject -->
     <!-- Layout styles -->
     <link rel="stylesheet" href="{{asset('backend/assets/css/style.css')}}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" 
+    integrity="sha512-3pIirOrwegjM6erE5gPSwkUzO+3cTjpnV9lexlNZqvupR64iZBnOOTiiLPb9M36zpMScbmUNIcHUqKD47M719g==" crossorigin="anonymous" />
     <!-- End layout styles -->
     <link rel="shortcut icon" href="{{asset('backend/assets/images/favicon.png')}}" />
   </head>
@@ -64,5 +66,28 @@
     <!-- Custom js for this page -->
     <script src="{{asset('backend/assets/js/dashboard.js')}}"></script>
     <!-- End custom js for this page -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" 
+    integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous"></script>
+
+    <script>
+      @if(Session::has('message'))
+      var type = "{{Session::get('alert-type','info')}}"
+      switch(type) {
+        case 'info' :
+        toastr.info("{{Session::get('message')}}")
+        break;
+        case 'success' :
+        toastr.success("{{Session::get('message')}}")
+        break;
+        case 'warning' :
+        toastr.warning("{{Session::get('message')}}")
+        break;
+        case 'error' :
+        toastr.error("{{Session::get('message')}}")
+        break;
+      }
+      @endif
+      </script>
   </body>
 </html>
