@@ -6,6 +6,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\backend\categoryController;
 use App\Http\Controllers\backend\SubCategoryController;
 use App\Http\Controllers\backend\DistrictController;
+use App\Http\Controllers\backend\SubDistrictController;
 
 
 /*
@@ -56,3 +57,7 @@ Route::get('edit/district/{id}', [DistrictController::class, 'Editdistrict'])->n
 Route::post('update/district/{id}', [DistrictController::class, 'updatedistrict'])->name('update.district');
 Route::get('delete/district/{id}', [DistrictController::class, 'deletedistrict'])->name('delete.district');
 
+//admin district routes
+Route::get('/subdistrict', [SubDistrictController::class, 'index'])->name('subdistrict');
+Route::get('add/subdistrict', [SubDistrictController::class, 'Addsubdistrict'])->name('add.subdistrict');
+Route::post('store/subdistrict', [SubDistrictController::class, 'Storesubdistrict'])->name('store.subdistrict');
