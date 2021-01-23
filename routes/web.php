@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\backend\categoryController;
+use App\Http\Controllers\backend\SubCategoryController;
 
 
 /*
@@ -36,3 +37,6 @@ Route::post('store/category', [categoryController::class, 'StoreCategory'])->nam
 Route::get('edit/category/{id}', [categoryController::class, 'EditCategory'])->name('edit.category');
 Route::post('update/category/{id}', [categoryController::class, 'updateCategory'])->name('update.category');
 Route::get('delete/category/{id}', [categoryController::class, 'deleteCategory'])->name('delete.category');
+
+//admin subcategory routes
+Route::get('/subcategories', [SubCategoryController::class, 'index'])->name('subcategories');
