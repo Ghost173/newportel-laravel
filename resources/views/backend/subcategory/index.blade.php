@@ -33,7 +33,7 @@
             <h4 class="card-title">SubCategory  Page</h4>
 
             <div class="template-demo">
-                <a href="{{route('add.category')}}">
+                <a href="{{route('add.subcategory')}}">
                     <button type="button" class="btn btn-primary btn-rounded btn-fw" style="float: right;">Add SubCategory</button>
                 </a>
             </div>
@@ -58,8 +58,9 @@
                         <td> {{$i++}} </td>
                         <td> {{$subcat->subcategory_en}} </td>
                         <td> {{$subcat->subcategory_ta}} </td>
+                        <td> {{$subcat->category_en}} | {{$subcat->category_ta}}</td>
                         <td> 
-                            <a href="{{route('edit.category', $subcat->id)}}" class="btn btn-info">Edit</a>
+                            <a href="{{route('edit.subcategory', $subcat->id)}}" class="btn btn-info">Edit</a>
                             <a href="{{route('delete.category', $subcat->id)}}" class="btn btn-danger" onclick="return confirm('Are you sure to delete?')">Delete</a>
 
                         </td>

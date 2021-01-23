@@ -40,3 +40,7 @@ Route::get('delete/category/{id}', [categoryController::class, 'deleteCategory']
 
 //admin subcategory routes
 Route::get('/subcategories', [SubCategoryController::class, 'index'])->name('subcategories');
+Route::get('/add/subcategories', [SubCategoryController::class, 'AddsubCategory'])->name('add.subcategory');
+Route::post('store/subcategory', [SubCategoryController::class, 'StoresubCategory'])->name('store.subcategory');
+Route::get('edit/subcategory/{id}', [SubCategoryController::class, 'EditsubCategory'])->name('edit.subcategory');
+
