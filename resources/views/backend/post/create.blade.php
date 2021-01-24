@@ -135,42 +135,40 @@
 
                 <div class="form-group">
                   <label for="exampleTextarea1">Details in english</label>
-                  <textarea class="form-control" id="exampleTextarea1" rows="4" style="color:white;" name="details_en"></textarea>
+                  <textarea class="form-control" name="	details_en" id="summernote"></textarea>
                 </div>
 
 
                 <div class="form-group">
                   <label for="exampleTextarea1">Details in tamil</label>
-                  <textarea class="form-control" id="exampleTextarea1" rows="4" style="color:white;" name="details_ta"></textarea>
+                  <textarea class="form-control" name="	details_ta" id="summernote1"></textarea>
                 </div>
 
+<hr>
+<br>
+                <h4 class="text-center"> Extra Options</h4>
+                <div class="row"> 
+                  <div class="form-check col-md-3">
+                    <label class="form-check-label">
+                      <input type="checkbox" class="form-check-input" name="headline">Headline</label>
+                  </div>
+                  <div class="form-check col-md-3">
+                    <label class="form-check-label">
+                      <input type="checkbox" class="form-check-input" name="bigthumnail">generel Big thumnail </label>
+                  </div>
+                  <div class="form-check col-md-3">
+                    <label class="form-check-label">
+                      <input type="checkbox" class="form-check-input" name="first_section">First Section </label>
+                  </div>
+                  <div class="form-check col-md-3">
+                    <label class="form-check-label">
+                      <input type="checkbox" class="form-check-input" name="first_thumnail">First Section thumnail</label>
+                  </div>
+                </div>
 
-
-
-              <div class="form-group">
-                <label for="exampleInputEmail3">Email address</label>
-                <input type="email" class="form-control" id="exampleInputEmail3" name="">
-              </div>
-              <div class="form-group">
-                <label for="exampleInputPassword4">Password</label>
-                <input type="password" class="form-control" id="exampleInputPassword4" placeholder="Password">
-              </div>
-              <div class="form-group">
-                <label for="exampleSelectGender">Gender</label>
-                <select class="form-control" id="exampleSelectGender">
-                  <option>Male</option>
-                  <option>Female</option>
-                </select>
-              </div>
-              
-              </div>
-              <div class="form-group">
-                <label for="exampleInputCity1">City</label>
-                <input type="text" class="form-control" id="exampleInputCity1" placeholder="Location">
-              </div>
+                <br> 
               
               <button type="submit" class="btn btn-primary mr-2">Submit</button>
-              <button class="btn btn-dark">Cancel</button>
             </form>
           </div>
         </div>
