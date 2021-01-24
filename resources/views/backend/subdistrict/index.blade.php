@@ -33,8 +33,8 @@
             <h4 class="card-title">SubCategory  Page</h4>
 
             <div class="template-demo">
-                <a href="{{route('add.subcategory')}}">
-                    <button type="button" class="btn btn-primary btn-rounded btn-fw" style="float: right;">Add SubCategory</button>
+                <a href="{{route('add.subdistrict')}}">
+                    <button type="button" class="btn btn-primary btn-rounded btn-fw" style="float: right;">Add subdistrict</button>
                 </a>
             </div>
         
@@ -43,32 +43,32 @@
                 <thead>
                   <tr>
                     <th> # </th>
-                    <th>Sub Category in English </th>
-                    <th>Sub Category in Tamil </th>
-                    <th>Category Name</th>
-                    <th> Action </th>
+                    <th>subdistrict in English </th>
+                    <th>subdistrict in Tamil </th>
+                    <th>district Name</th>
+                    <th>Action </th>
                   </tr>
                 </thead>
 
                 
                 <tbody>
                   @php ($i = 1)
-                    @foreach ($subcategory as $subcat)
+                    @foreach ($subdistrict as $subdis)
                         <tr>
                         <td> {{$i++}} </td>
-                        <td> {{$subcat->subcategory_en}} </td>
-                        <td> {{$subcat->subcategory_ta}} </td>
-                        <td> {{$subcat->category_en}} | {{$subcat->category_ta}}</td>
+                        <td> {{$subdis->subdistrict_en}} </td>
+                        <td> {{$subdis->subdistrict_ta}} </td>
+                        <td> {{$subdis->district_en}} | {{$subdis->district_ta}}</td>
                         <td> 
-                            <a href="{{route('edit.subcategory', $subcat->id)}}" class="btn btn-info">Edit</a>
-                            <a href="{{route('delete.subcategory', $subcat->id)}}" class="btn btn-danger" onclick="return confirm('Are you sure to delete?')">Delete</a>
+                            <a href="{{route('edit.subcategory', $subdis->id)}}" class="btn btn-info">Edit</a>
+                            <a href="{{route('delete.subcategory', $subdis->id)}}" class="btn btn-danger" onclick="return confirm('Are you sure to delete?')">Delete</a>
 
                         </td>
                       </tr>
                     @endforeach
                 </tbody>
               </table>
-              {{$subcategory->links('pagination-link')}}
+              {{$subdistrict->links('pagination-link')}}
             </div>
           </div>
         </div>

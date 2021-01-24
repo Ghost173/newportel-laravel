@@ -13,7 +13,7 @@
                 <img src="{{asset('backend/assets/images/dashboard/Group126@2x.png')}}" class="gradient-corona-img img-fluid" alt="">
               </div>
               <div class="col-5 col-sm-7 col-xl-8 p-0">
-                <h4 class="mb-1 mb-sm-0">YOUR ARE IN ADD CATEGORY PAGE</h4>
+                <h4 class="mb-1 mb-sm-0">Welcome to tamilworld</h4>
                 {{-- <p class="mb-0 font-weight-normal d-none d-sm-block">YOUR ARE IN ADD CATEGORY PAGE</p> --}}
               </div>
               <div class="col-3 col-sm-2 col-xl-2 pl-0 text-center">
@@ -32,22 +32,39 @@
     <div class="col-md-12 grid-margin stretch-card">
         <div class="card">
           <div class="card-body">
-            <h4 class="card-title">Add category</h4>
-            <form class="forms-sample" method="POST" action="{{route('store.category')}}">
-              @csrf
+            <h4 class="card-title">Add subdistrict</h4>
+            <form class="forms-sample" method="POST" action="{{route('store.subdistrict')}}">
+                @csrf
               <div class="form-group">
-                 
-                <label for="exampleInputUsername1">Category in english</label>
-                <input type="text" class="form-control" name="category_en" >
-                @error('category_en')
+                  @csrf
+                <label for="exampleInputUsername1">subdistrict in english</label>
+                <input type="text" class="form-control" name="subdistrict_en" >
+                @error('subdistrict_en')
                     <span class="text text-danger">{{$message}}</span>
                 @enderror
               </div>
 
               <div class="form-group">
-                <label for="exampleInputEmail1">Category in tamil</label>
-                <input type="text" class="form-control" name="category_ta" >
-                @error('category_ta')
+                <label for="exampleInputEmail1">subdistrict in tamil</label>
+                <input type="text" class="form-control" name="subdistrict_ta" >
+                @error('subdistrict_ta')
+                    <span class="text text-danger">{{$message}}</span>
+                @enderror
+              </div>
+
+
+              <div class="form-group">
+                <label for="exampleFormControlSelect2">Select district</label>
+
+                <select class="form-control" id="exampleFormControlSelect2" name="district_id">
+                    <option disabled selected> select category</option>  
+
+                    @foreach ($subdistrict as $sdis)
+                    <option value="{{$sdis->id}}">{{$sdis->district_en}} | {{$sdis->district_ta}}</option>
+                    @endforeach
+
+                </select>
+                @error('district_id')
                     <span class="text text-danger">{{$message}}</span>
                 @enderror
               </div>

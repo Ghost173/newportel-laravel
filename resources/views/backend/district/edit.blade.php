@@ -13,7 +13,7 @@
                 <img src="{{asset('backend/assets/images/dashboard/Group126@2x.png')}}" class="gradient-corona-img img-fluid" alt="">
               </div>
               <div class="col-5 col-sm-7 col-xl-8 p-0">
-                <h4 class="mb-1 mb-sm-0">YOUR ARE IN ADD CATEGORY PAGE</h4>
+                <h4 class="mb-1 mb-sm-0">Welcome to tamilworld</h4>
                 {{-- <p class="mb-0 font-weight-normal d-none d-sm-block">YOUR ARE IN ADD CATEGORY PAGE</p> --}}
               </div>
               <div class="col-3 col-sm-2 col-xl-2 pl-0 text-center">
@@ -32,27 +32,28 @@
     <div class="col-md-12 grid-margin stretch-card">
         <div class="card">
           <div class="card-body">
-            <h4 class="card-title">Add category</h4>
-            <form class="forms-sample" method="POST" action="{{route('store.category')}}">
-              @csrf
+            <h4 class="card-title">Update district</h4>
+            {{-- {{route('update.category', $district->id)}} --}}
+            <form class="forms-sample" method="POST" action="{{route('update.district', $district->id)}}">
+
               <div class="form-group">
-                 
-                <label for="exampleInputUsername1">Category in english</label>
-                <input type="text" class="form-control" name="category_en" >
-                @error('category_en')
+                  @csrf
+                <label for="exampleInputUsername1">district in english</label>
+                <input type="text" class="form-control" name="district_en" value="{{$district->district_en}}" >
+                @error('district_en')
                     <span class="text text-danger">{{$message}}</span>
                 @enderror
               </div>
 
               <div class="form-group">
-                <label for="exampleInputEmail1">Category in tamil</label>
-                <input type="text" class="form-control" name="category_ta" >
-                @error('category_ta')
+                <label for="exampleInputEmail1">district in tamil</label>
+                <input type="text" class="form-control" name="district_ta" value="{{$district->district_ta}}" >
+                @error('district_ta')
                     <span class="text text-danger">{{$message}}</span>
                 @enderror
               </div>
 
-              <button type="submit" class="btn btn-primary mr-2">Submit</button>
+              <button type="submit" class="btn btn-primary mr-2">Update</button>
             </form>
           </div>
         </div>

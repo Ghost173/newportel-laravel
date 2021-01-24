@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\backend\categoryController;
 use App\Http\Controllers\backend\SubCategoryController;
+use App\Http\Controllers\backend\DistrictController;
+use App\Http\Controllers\backend\SubDistrictController;
 
 
 /*
@@ -40,3 +42,22 @@ Route::get('delete/category/{id}', [categoryController::class, 'deleteCategory']
 
 //admin subcategory routes
 Route::get('/subcategories', [SubCategoryController::class, 'index'])->name('subcategories');
+Route::get('/add/subcategories', [SubCategoryController::class, 'AddsubCategory'])->name('add.subcategory');
+Route::post('store/subcategory', [SubCategoryController::class, 'StoresubCategory'])->name('store.subcategory');
+Route::get('edit/subcategory/{id}', [SubCategoryController::class, 'EditsubCategory'])->name('edit.subcategory');
+Route::post('update/subcategory/{id}', [SubCategoryController::class, 'updatesubCategory'])->name('update.subcategory');
+Route::get('delete/subcategory/{id}', [SubCategoryController::class, 'deletesubCategory'])->name('delete.subcategory');
+
+
+//admin district routes
+Route::get('/district', [DistrictController::class, 'index'])->name('district');
+Route::get('add/district', [DistrictController::class, 'AddDistrict'])->name('add.district');
+Route::post('store/district', [DistrictController::class, 'StoreDistrict'])->name('store.district');
+Route::get('edit/district/{id}', [DistrictController::class, 'Editdistrict'])->name('edit.district');
+Route::post('update/district/{id}', [DistrictController::class, 'updatedistrict'])->name('update.district');
+Route::get('delete/district/{id}', [DistrictController::class, 'deletedistrict'])->name('delete.district');
+
+//admin district routes
+Route::get('/subdistrict', [SubDistrictController::class, 'index'])->name('subdistrict');
+Route::get('add/subdistrict', [SubDistrictController::class, 'Addsubdistrict'])->name('add.subdistrict');
+Route::post('store/subdistrict', [SubDistrictController::class, 'Storesubdistrict'])->name('store.subdistrict');
