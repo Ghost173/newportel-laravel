@@ -60,8 +60,8 @@
                         <td> {{$subdis->subdistrict_ta}} </td>
                         <td> {{$subdis->district_en}} | {{$subdis->district_ta}}</td>
                         <td> 
-                            <a href="{{route('edit.subcategory', $subdis->id)}}" class="btn btn-info">Edit</a>
-                            <a href="{{route('delete.subcategory', $subdis->id)}}" class="btn btn-danger" onclick="return confirm('Are you sure to delete?')">Delete</a>
+                            <a href="{{route('edit.subdistrict', $subdis->id)}}" class="btn btn-info">Edit</a>
+                            <a href="{{route('delete.subdistrict', $subdis->id)}}" class="btn btn-danger" onclick="return confirm('Are you sure to delete?')">Delete</a>
 
                         </td>
                       </tr>
