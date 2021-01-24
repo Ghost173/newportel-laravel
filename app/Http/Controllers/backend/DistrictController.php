@@ -79,4 +79,7 @@ class DistrictController extends Controller
         return redirect()->route('district')->with($notification );
     }
 
+
+  
+
 }
