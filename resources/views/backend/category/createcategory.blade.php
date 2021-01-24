@@ -13,7 +13,7 @@
                 <img src="{{asset('backend/assets/images/dashboard/Group126@2x.png')}}" class="gradient-corona-img img-fluid" alt="">
               </div>
               <div class="col-5 col-sm-7 col-xl-8 p-0">
-                <h4 class="mb-1 mb-sm-0">YOUR ARE IN ADD CATEGORY PAGE</h4>
+                <h4 class="mb-1 mb-sm-0">YWelcome to tamilworld</h4>
                 {{-- <p class="mb-0 font-weight-normal d-none d-sm-block">YOUR ARE IN ADD CATEGORY PAGE</p> --}}
               </div>
               <div class="col-3 col-sm-2 col-xl-2 pl-0 text-center">
