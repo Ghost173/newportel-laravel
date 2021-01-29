@@ -111,7 +111,7 @@
         <div class="collapse" id="post">
           <ul class="nav flex-column sub-menu">
             <li class="nav-item"> <a class="nav-link" href="{{route('create.post')}}">Add post </a></li>
-            <li class="nav-item"> <a class="nav-link" href="#">All post </a></li>
+            <li class="nav-item"> <a class="nav-link" href="{{route('all.post')}}">All post </a></li>
           </ul>
         </div>
       </li>

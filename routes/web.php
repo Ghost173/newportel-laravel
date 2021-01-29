@@ -34,7 +34,7 @@ Route::get('/admin/logout', [AdminController::class, 'Logout'])->name('admin.log
 
 
 //Admin category all routes 
-Route::get('/categories', [categoryController::class, 'index'])->name('categories');
+Route::middleware(['auth:sanctum', 'verified'])->get('/categories', [categoryController::class, 'index'])->name('categories');
 Route::get('add/category', [categoryController::class, 'AddCategory'])->name('add.category');
 Route::post('store/category', [categoryController::class, 'StoreCategory'])->name('store.category');
 Route::get('edit/category/{id}', [categoryController::class, 'EditCategory'])->name('edit.category');
@@ -67,7 +67,15 @@ Route::post('update/subdistrict/{id}', [SubDistrictController::class, 'updatesub
 Route::get('delete/subdistrict/{id}', [SubDistrictController::class, 'deletesubdistrict'])->name('delete.subdistrict');
 
 
+//json data for sub catgeory and district
+Route::get('get/subcategory/{category_id}', [PostController::class, 'GetSubCateory']);
+Route::get('get/subdistrict/{district_id}', [PostController::class, 'GetSubDistrict']);
+
+
 //admin post routes
 Route::get('/createpost', [PostController::class, 'index'])->name('create.post');
+Route::post('/storepost', [PostController::class, 'StorePost'])->name('store.post');
+Route::get('/allpost', [PostController::class, 'allpost'])->name('all.post');
+Route::get('/editpost/{id}', [PostController::class, 'editpost'])->name('edit.post');
 
 
