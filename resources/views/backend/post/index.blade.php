@@ -87,7 +87,7 @@
                         <td> 
                             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal{{$row->id}}"> View </button>
                             <a href="{{route('edit.post', $row->id)}}" class="btn btn-info">Edit</a>
-                            <a href="{{route('delete.category', $row->id)}}" class="btn btn-danger" onclick="return confirm('Are you sure to delete?')">Delete</a>
+                            <a href="{{route('delete.post', $row->id)}}" class="btn btn-danger" onclick="return confirm('Are you sure to delete?')">Delete</a>
                             
 
                         </td>

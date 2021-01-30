@@ -40,7 +40,7 @@
           <div class="card-body">
             <h4 class="card-title">edit news</h4>
 
-            <form class="forms-sample" method="POST" enctype="multipart/form-data" action="{{route('store.post')}}" >
+            <form class="forms-sample" method="POST" enctype="multipart/form-data" action="{{route('update.post',$post->id)}}" >
               @csrf
               
               <div class="row">
@@ -55,7 +55,7 @@
 
                 <div class="form-group col-md-6">
                   <label for="exampleInputName1">Title in tamil</label>
-                  <input type="text" class="form-control" id="exampleInputName1" name="title_ta" value="{{$post->title_ta}} style="color:white;">
+                  <input type="text" class="form-control" id="exampleInputName1" name="title_ta" value="{{$post->title_ta}}" style="color:white;">
                 </div>
 
               </div>

@@ -111,4 +111,82 @@ class PostController extends Controller
         
         return view('backend.post.edit',compact('post','category','district'));
     }
+
+
+
+    public function updatepost(Request $request, $id) {
+        $validated = $request->validate([
+            'category_id' => 'required',
+            'district_id' => 'required',
+            'title_en' => 'required',
+            'tags_en' => 'required',
+            'details_en' => 'required',
+            'details_ta' => 'required',
+        ]);
+
+        $data = array();
+        $data['title_en'] = $request->title_en;
+        $data['title_ta'] = $request->title_ta;
+        $data['user_id'] = auth()->user()->id;
+        $data['category_id'] = $request->category_id;
+        $data['subcategory_id'] = $request->subcategory_id;
+        $data['district_id'] = $request->district_id;
+        $data['subdistrict_id'] = $request->subdistrict_id;
+        $data['tags_en'] = $request->tags_en;
+        $data['tags_ta'] = $request->tags_ta;
+        $data['details_en'] = $request->details_en;
+        $data['details_ta'] = $request->details_ta;
+
+        $data['headline'] = $request->headline;
+        $data['first_section'] = $request->first_section;
+        $data['first_thumnail'] = $request->first_thumnail;
+        $data['bigthumnail'] = $request->bigthumnail;
+        $data['updated_at'] = Carbon::now();
+
+        $oldimage = $request->oldimage;
+        
+        $image = $request->image;
+
+        if($image) {
+            $img_one = uniqid().'.'.$image->getClientOriginalExtension();
+            Image::make($image)->resize(500,300)->save('image/postimage/'.$img_one);
+            $data['image'] =  'image/postimage/'.$img_one;
+
+            DB::table('posts')->where('id', $id)->update($data);
+            unlink($oldimage);
+
+            $notification = array(
+                'message' => 'Post created successfully',
+                'alert-type' => 'success'
+            );
+            return redirect()->route('all.post')->with($notification );
+        }
+
+
+        else {
+            $data['image'] = $oldimage;
+            DB::table('posts')->where('id', $id)->update($data);
+
+            $notification = array(
+                'message' => 'Post created successfully',
+                'alert-type' => 'success'
+            );
+            return redirect()->route('all.post')->with($notification );
+        }
+    }
+
+
+    public function deletepost($id)  {
+        // $post = DB::table('posts')->where->('id',$id)->first();
+            $post = DB::table('posts')->where('id', $id)->first();
+            unlink($post->image);
+            DB::table('posts')->where('id', $id)->delete();
+
+            $notification = array(
+                'message' => 'Post delete successfully',
+                'alert-type' => 'error'
+            );
+
+            return redirect()->route('all.post')->with($notification );
+    }
 }
