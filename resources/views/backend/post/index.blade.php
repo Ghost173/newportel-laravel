@@ -62,16 +62,103 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">{{$row->title_en}}</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Post View</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        ...
+        
+
+
+        <div class="col-12 grid-margin stretch-card">
+          <div class="card">
+            <div class="card-body">
+              <h4 class="card-title"></h4>
+              <form class="forms-sample">
+                <div class="form-group">
+                  <label for="exampleInputName1">Title in english</label>
+                  <textarea class="form-control" id="exampleTextarea1" rows="2" style="color:black;" disabled>{{$row->title_en}}</textarea>
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputEmail3">Title in tamil</label>
+                  <textarea class="form-control" id="exampleTextarea1" rows="2" style="color:black;" disabled>{{$row->title_ta}}</textarea>
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputPassword4">tags in english</label>
+                  <textarea class="form-control" id="exampleTextarea1" rows="2" style="color:black;" disabled>{{$row->tags_en}}</textarea>
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputPassword4">tags in tamil</label>
+                  <textarea class="form-control" id="exampleTextarea1" rows="2" style="color:black;" disabled>{{$row->tags_ta}}</textarea>
+                </div>
+                
+                <div class="form-group">
+                  <label for="exampleInputPassword4">Deatils in tamil</label>
+                  <textarea class="form-control" id="exampleTextarea1" rows="6" style="color:black;" disabled>{{$row->details_en}}</textarea>
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputPassword4">Deatils in tamil</label>
+                  <textarea class="form-control" id="exampleTextarea1" rows="6" style="color:black;" disabled>{{$row->details_ta}}</textarea>
+                </div>
+
+                <div class="form-group">
+                  <label for="exampleInputPassword4">Catgeory</label>
+                  <textarea class="form-control" id="exampleTextarea1" rows="1" style="color:black;" disabled>{{$row->category_en}} | {{$row->category_ta}}</textarea>
+                </div>
+
+                <div class="form-group">
+                  <label for="exampleInputPassword4">District</label>
+                  <textarea class="form-control" id="exampleTextarea1" rows="1" style="color:black;" disabled>{{$row->district_en}} | {{$row->district_ta}}</textarea>
+                </div>
+
+                <div class="row">
+                  <div class="form-check col-md-3">
+                    <label class="form-check-label">
+                      <input type="checkbox" class="form-check-input" name="headline" value="1"
+                      <?php
+                        if($row->headline == 1) echo "checked";
+                      ?>
+                      >Heading</label>
+                  </div>
+                  <div class="form-check col-md-3">
+                    <label class="form-check-label">
+                      <input type="checkbox" class="form-check-input" name="bigthumnail" value="1"
+                      <?php
+                        if($row->bigthumnail == 1) echo "checked";
+                      ?>
+                      >generel Big thumnail </label>
+                  </div>
+                  <div class="form-check col-md-3">
+                    <label class="form-check-label">
+                      <input type="checkbox" class="form-check-input" name="first_section" value="1"
+                      
+                      <?php
+                        if($row->first_section == 1) echo "checked";
+                      ?>
+                      >First Section </label>
+                  </div>
+
+                  <div class="form-check col-md-3">
+                    <label class="form-check-label">
+                      <input type="checkbox" class="form-check-input" name="first_thumnail" value="1"
+                      <?php
+                        if($row->first_thumnail == 1) echo "checked";
+                      ?>
+                      >First Section thumnail</label>
+                  </div>
+                </div> 
+              </form>
+            </div>
+          </div>
+        </div>
+        
+
       </div>
       <div class="modal-footer">
+        <a type="button" class="btn btn-danger" href="{{route('edit.post', $row->id)}}">Edit</a>
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
       </div>
     </div>
   </div>
@@ -102,7 +189,5 @@
       </div>
     
     
-    
-
 
 @endsection  

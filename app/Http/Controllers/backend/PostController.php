@@ -21,7 +21,6 @@ class PostController extends Controller
 
 
     public function GetSubCateory($category_id) {
-        // $sub = DB::('sub_categories')->where('category_id' ,$category_id)->get();
         $sub = DB::table('sub_categories')->where('category_id', $category_id)->get();
         return response()->json($sub);
 
@@ -29,7 +28,6 @@ class PostController extends Controller
 
 
     public function GetSubDistrict($district_id) {
-        // $sub = DB::('sub_categories')->where('category_id' ,$category_id)->get();
         $subd = DB::table('subdistricts')->where('district_id', $district_id)->get();
         return response()->json($subd);
 
@@ -97,7 +95,7 @@ class PostController extends Controller
             ->join('sub_categories','posts.subcategory_id','sub_categories.id')
             ->join('districts','posts.district_id','districts.id')
             ->join('subdistricts','posts.subdistrict_id','subdistricts.id')
-            ->select('posts.*','categories.category_en','sub_categories.subcategory_en','districts.district_en','subdistricts.subdistrict_en')
+            ->select('posts.*','categories.category_en','sub_categories.subcategory_en','districts.district_en','subdistricts.subdistrict_en','categories.category_ta','districts.district_ta')
             ->orderBy('id','desc')->paginate(10);
 
             return view('backend.post.index',compact('post'));
