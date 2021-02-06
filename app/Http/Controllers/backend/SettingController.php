@@ -134,6 +134,48 @@ class SettingController extends Controller
     }
 
 
+    public function noticeseting() {
+        $notice = DB::table('notices')->first();
+        return view('backend.settings.notice', compact('notice'));
+    }
+
+
+    public function updatenotice(Request $request, $id) {
+        $data = array();
+        $data['notice'] = $request->notice;
+
+        DB::table('notices')->where('id',$id)->update($data);
+
+        $notification = array(
+            'message' => 'notices updated successfully',
+            'alert-type' => 'success'
+        );
+        return redirect()->route('notice.setting')->with($notification );
+    }
+
+
+
+
+    public function noticeactive(Request $request, $id) {
+        DB::table('notices')->where('id',$id)->update(['status'=>1]);
+
+        $notification = array(
+            'message' => 'notices aciveated',
+            'alert-type' => 'success'
+        );
+        return redirect()->back()->with($notification );
+    }
+
+
+    public function noticedeactive(Request $request, $id) {
+        DB::table('notices')->where('id',$id)->update(['status'=>0]);
+
+        $notification = array(
+            'message' => 'notices Deaciveated',
+            'alert-type' => 'success'
+        );
+        return redirect()->back()->with($notification );
+    }
     
 }
 
