@@ -84,3 +84,10 @@ Route::get('delete/post/{id}', [PostController::class, 'deletepost'])->name('del
 Route::get('social/setting', [SettingController::class, 'SocialSettingpost'])->name('social.setting');
 Route::post('social/setting/{id}', [SettingController::class, 'updatesocial'])->name('update.social');
 
+//admin seo
+Route::get('seo/setting', [SettingController::class, 'seosetting'])->name('seo.setting');
+Route::post('seo/setting/{id}', [SettingController::class, 'updateseo'])->name('update.seo');
+
+//admin items
+Route::get('partner/setting', [SettingController::class, 'itemsetting'])->name('item.setting');
+Route::post('partner/setting/{id}', [SettingController::class, 'updateitem'])->name('update.partners');
