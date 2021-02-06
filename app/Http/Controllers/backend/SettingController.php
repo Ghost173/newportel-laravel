@@ -89,5 +89,25 @@ class SettingController extends Controller
         );
         return redirect()->route('item.setting')->with($notification );
     }
+
+
+    public function livetvetting() {
+        $livetv = DB::table('livetcs')->first();
+        return view('backend.settings.livetv', compact('livetv'));
+    }
+
+
+    public function updatelivetv(Request $request, $id) {
+        $data = array();
+        $data['embed_code'] = $request->embed_code;
+
+        DB::table('livetcs')->where('id',$id)->update($data);
+
+        $notification = array(
+            'message' => 'livettv updated successfully',
+            'alert-type' => 'success'
+        );
+        return redirect()->route('livetv.setting')->with($notification );
+    }
 }
 

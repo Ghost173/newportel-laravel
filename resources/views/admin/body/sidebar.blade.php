@@ -130,6 +130,7 @@
             <li class="nav-item"> <a class="nav-link" href="{{route('social.setting')}}">Social settings </a></li>
             <li class="nav-item"> <a class="nav-link" href="{{route('seo.setting')}}">SEO settings </a></li>
             <li class="nav-item"> <a class="nav-link" href="{{route('item.setting')}}">Items settings </a></li>
+            <li class="nav-item"> <a class="nav-link" href="{{route('livetv.setting')}}">LiveTv settings </a></li>
           </ul>
         </div>
       </li>

@@ -91,3 +91,7 @@ Route::post('seo/setting/{id}', [SettingController::class, 'updateseo'])->name('
 //admin items
 Route::get('partner/setting', [SettingController::class, 'itemsetting'])->name('item.setting');
 Route::post('partner/setting/{id}', [SettingController::class, 'updateitem'])->name('update.partners');
+
+//admin live tv
+Route::get('livetv/setting', [SettingController::class, 'livetvetting'])->name('livetv.setting');
+Route::post('livetv/setting/{id}', [SettingController::class, 'updatelivetv'])->name('update.livetv');
