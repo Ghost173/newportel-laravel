@@ -9,6 +9,7 @@ use App\Http\Controllers\backend\DistrictController;
 use App\Http\Controllers\backend\SubDistrictController;
 use App\Http\Controllers\backend\PostController;
 use App\Http\Controllers\backend\SettingController;
+use App\Http\Controllers\backend\WebsiteController;
 
 /*
 |--------------------------------------------------------------------------
@@ -103,3 +104,11 @@ Route::get('notice/setting', [SettingController::class, 'noticeseting'])->name('
 Route::post('notice/setting/{id}', [SettingController::class, 'updatenotice'])->name('update.notice');
 Route::get('notice/active/{id}', [SettingController::class, 'noticeactive'])->name('active.notice');
 Route::get('notice/deactive/{id}', [SettingController::class, 'noticedeactive'])->name('deactive.notice');
+
+//adminwebsite
+Route::get('website/setting', [WebsiteController::class, 'websitesetting'])->name('all.website');
+Route::get('website/add', [WebsiteController::class, 'addwebsite'])->name('add.website');
+Route::post('website/store', [WebsiteController::class, 'storewebsite'])->name('store.website');
+Route::get('website/edit/{id}', [WebsiteController::class, 'editwebsite'])->name('edit.website');
+Route::post('website/update/{id}', [WebsiteController::class, 'updatewebsite'])->name('update.website');
+Route::get('website/delete/{id}', [WebsiteController::class, 'deletewebsite'])->name('delete.website');

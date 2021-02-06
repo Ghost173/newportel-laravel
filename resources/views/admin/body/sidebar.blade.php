@@ -120,7 +120,7 @@
       <li class="nav-item menu-items">
         <a class="nav-link" data-toggle="collapse" href="#settings" aria-expanded="false" aria-controls="settings">
           <span class="menu-icon">
-            <i class="mdi mdi-playlist-play"></i>
+            <i class="mdi mdi-security"></i>
           </span>
           <span class="menu-title">Settings</span>
           <i class="menu-arrow"></i>
@@ -137,6 +137,41 @@
       </li>
 
 
+      <li class="nav-item menu-items">
+        <a class="nav-link" data-toggle="collapse" href="#Websites" aria-expanded="false" aria-controls="Websites">
+          <span class="menu-icon">
+            <i class="mdi mdi-security"></i>
+          </span>
+          <span class="menu-title">Websites</span>
+          <i class="menu-arrow"></i>
+        </a>
+        <div class="collapse" id="Websites">
+          <ul class="nav flex-column sub-menu">
+            <li class="nav-item"> <a class="nav-link" href="{{route('all.website')}}">Allwebsites</a></li>
+            <li class="nav-item"> <a class="nav-link" href="{{route('all.website')}}">Addwebsite</a></li>
+           
+          </ul>
+        </div>
+      </li>
+
+
+
+      <li class="nav-item menu-items">
+        <a class="nav-link" data-toggle="collapse" href="#booo" aria-expanded="false" aria-controls="booo">
+          <span class="menu-icon">
+            <i class="mdi mdi-security"></i>
+          </span>
+          <span class="menu-title">booo</span>
+          <i class="menu-arrow"></i>
+        </a>
+        <div class="collapse" id="booo">
+          <ul class="nav flex-column sub-menu">
+            <li class="nav-item"> <a class="nav-link" href="{{route('all.website')}}">Allwebsites</a></li>
+            <li class="nav-item"> <a class="nav-link" href="{{route('all.website')}}">Addwebsite</a></li>
+           
+          </ul>
+        </div>
+      </li>
 
 
       <li class="nav-item menu-items">

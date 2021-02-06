@@ -12,7 +12,7 @@
                 <img src="{{asset('backend/assets/images/dashboard/Group126@2x.png')}}" class="gradient-corona-img img-fluid" alt="">
               </div>
               <div class="col-5 col-sm-7 col-xl-8 p-0">
-                <h4 class="mb-1 mb-sm-0">YWelcome to tamilworld</h4>
+                <h4 class="mb-1 mb-sm-0">Welcome to tamilworld</h4>
                 {{-- <p class="mb-0 font-weight-normal d-none d-sm-block">YOUR ARE IN CATEGORY PAGE</p> --}}
               </div>
               <div class="col-3 col-sm-2 col-xl-2 pl-0 text-center">
@@ -30,11 +30,11 @@
     <div class="col-lg-12 grid-margin stretch-card">
         <div class="card">
           <div class="card-body">
-            <h4 class="card-title">Category  Page</h4>
+            <h4 class="card-title">Website setting</h4>
 
             <div class="template-demo">
-                <a href="{{route('add.category')}}">
-                    <button type="button" class="btn btn-primary btn-rounded btn-fw" style="float: right;">Add Category</button>
+                <a href="{{route('add.website')}}">
+                    <button type="button" class="btn btn-primary btn-rounded btn-fw" style="float: right;">Add website</button>
                 </a>
             </div>
         
@@ -43,30 +43,30 @@
                 <thead>
                   <tr>
                     <th> # </th>
-                    <th>Category English </th>
-                    <th> Category Tamil </th>
-                    <th> Action </th>
+                    <th>Website Name </th>
+                    <th>Website link </th>
+                    <th>Action</th>
                   </tr>
                 </thead>
 
                 
                 <tbody>
                   @php ($i = 1)
-                    @foreach ($category as $cat)
+                    @foreach ($website as $web)
                         <tr>
                         <td> {{$i++}} </td>
-                        <td> {{$cat->category_en}} </td>
-                        <td> {{$cat->category_ta}} </td>
+                        <td> {{$web->website_name}} </td>
+                        <td> {{$web->website_link}} </td>
                         <td> 
-                            <a href="{{route('edit.category', $cat->id)}}" class="btn btn-info">Edit</a>
-                            <a href="{{route('delete.category', $cat->id)}}" class="btn btn-danger" onclick="return confirm('Are you sure to delete?')">Delete</a>
+                            <a href="{{route('edit.website', $web->id)}}" class="btn btn-info">Edit</a>
+                            <a href="{{route('delete.website', $web->id)}}" class="btn btn-danger" onclick="return confirm('Are you sure to delete?')">Delete</a>
 
                         </td>
                       </tr>
                     @endforeach
                 </tbody>
               </table>
-              {{$category->links('pagination-link')}}
+              {{$website->links('pagination-link')}}
             </div>
           </div>
         </div>
