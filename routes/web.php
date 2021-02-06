@@ -95,3 +95,6 @@ Route::post('partner/setting/{id}', [SettingController::class, 'updateitem'])->n
 //admin live tv
 Route::get('livetv/setting', [SettingController::class, 'livetvetting'])->name('livetv.setting');
 Route::post('livetv/setting/{id}', [SettingController::class, 'updatelivetv'])->name('update.livetv');
+
+Route::get('livetv/active/{id}', [SettingController::class, 'livetvactive'])->name('active.livetv');
+Route::get('livetv/deactive/{id}', [SettingController::class, 'livetvdeactive'])->name('deactive.livetv');

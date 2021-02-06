@@ -109,5 +109,31 @@ class SettingController extends Controller
         );
         return redirect()->route('livetv.setting')->with($notification );
     }
+
+
+
+    public function livetvactive(Request $request, $id) {
+        DB::table('livetcs')->where('id',$id)->update(['status'=>1]);
+
+        $notification = array(
+            'message' => 'livettv aciveated',
+            'alert-type' => 'success'
+        );
+        return redirect()->back()->with($notification );
+    }
+
+
+    public function livetvdeactive(Request $request, $id) {
+        DB::table('livetcs')->where('id',$id)->update(['status'=>0]);
+
+        $notification = array(
+            'message' => 'livettv Deaciveated',
+            'alert-type' => 'success'
+        );
+        return redirect()->back()->with($notification );
+    }
+
+
+    
 }
 
