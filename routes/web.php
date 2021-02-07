@@ -10,6 +10,8 @@ use App\Http\Controllers\backend\SubDistrictController;
 use App\Http\Controllers\backend\PostController;
 use App\Http\Controllers\backend\SettingController;
 use App\Http\Controllers\backend\WebsiteController;
+use App\Http\Controllers\backend\PhotoController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -112,3 +114,11 @@ Route::post('website/store', [WebsiteController::class, 'storewebsite'])->name('
 Route::get('website/edit/{id}', [WebsiteController::class, 'editwebsite'])->name('edit.website');
 Route::post('website/update/{id}', [WebsiteController::class, 'updatewebsite'])->name('update.website');
 Route::get('website/delete/{id}', [WebsiteController::class, 'deletewebsite'])->name('delete.website');
+
+//admin4to
+Route::get('photo/setting', [PhotoController::class, 'photogallery'])->name('photo');
+Route::get('photo/add', [PhotoController::class, 'addphoto'])->name('add.photo');
+Route::post('store/photo', [PhotoController::class, 'storephoto'])->name('store.photo');
+Route::get('photo/edit/{id}', [PhotoController::class, 'editphoto'])->name('edit.photo');
+Route::post('update/photo/{id}', [PhotoController::class, 'updatephoto'])->name('update.photo');
+Route::get('delete/photo/{id}', [PhotoController::class, 'deletephoto'])->name('delete.photo');

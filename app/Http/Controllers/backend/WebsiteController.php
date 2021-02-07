@@ -71,5 +71,7 @@ class WebsiteController extends Controller
         return redirect()->route('all.website')->with($notification );
     }
 
+
+   
 }
 
