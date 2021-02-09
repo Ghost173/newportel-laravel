@@ -122,3 +122,11 @@ Route::post('store/photo', [PhotoController::class, 'storephoto'])->name('store.
 Route::get('photo/edit/{id}', [PhotoController::class, 'editphoto'])->name('edit.photo');
 Route::post('update/photo/{id}', [PhotoController::class, 'updatephoto'])->name('update.photo');
 Route::get('delete/photo/{id}', [PhotoController::class, 'deletephoto'])->name('delete.photo');
+
+//admin vide
+Route::get('video/galley', [PhotoController::class, 'videogalley'])->name('video');
+Route::get('photo/video', [PhotoController::class, 'addvideo'])->name('add.video');
+Route::post('store/video', [PhotoController::class, 'storevideo'])->name('store.video');
+Route::get('video/edit/{id}', [PhotoController::class, 'editvideo'])->name('edit.video');
+Route::post('video/edit/{id}', [PhotoController::class, 'updateviedo'])->name('update.video');
+Route::get('delete/video/{id}', [PhotoController::class, 'deletedelete'])->name('delete.video');

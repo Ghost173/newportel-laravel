@@ -113,5 +113,69 @@ class PhotoController extends Controller
 
             return redirect()->route('photo')->with($notification );
     }
+    
 
+
+    //video
+
+    public function videogalley() {
+        $video = DB::table('videos')->orderBy('id','desc')->paginate(10);
+        return view('backend.gallery.video', compact('video'));
+    }
+
+
+    public function addvideo() {
+        return view('backend.gallery.addvideo');
+    }
+
+
+    public function storevideo(Request $request) {
+        $data = array();
+        $data['title'] = $request->title;
+        $data['embed_code'] = $request->embed_code;
+        $data['type'] = $request->type;
+
+        DB::table('videos')->insert($data);
+
+        $notification = array(
+            'message' => 'videos save successfully',
+            'alert-type' => 'success'
+        );
+        return redirect()->route('video')->with($notification );
+    }
+
+
+    public function editvideo(Request $request, $id) {
+        $videos = DB::table('videos')->where('id',$id)->first();
+        return view('backend.gallery.editvideo',compact('videos'));
+    }
+
+
+    public function updateviedo(Request $request, $id) {
+        $data = array();
+        $data['title'] = $request->title;
+        $data['embed_code'] = $request->embed_code;
+        $data['type'] = $request->type;
+
+        DB::table('videos')->where('id',$id)->update($data);
+
+        $notification = array(
+            'message' => 'videos update successfully',
+            'alert-type' => 'success'
+        );
+        return redirect()->route('video')->with($notification );
+    }
+
+
+
+    public function deletedelete($id) {
+        DB::table('videos')->where('id', $id)->delete();
+
+        $notification = array(
+            'message' => 'videos Deleted successfully',
+            'alert-type' => 'success'
+        );
+        return redirect()->route('video')->with($notification );
+    }
 }
+
