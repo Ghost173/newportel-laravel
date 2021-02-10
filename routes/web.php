@@ -9,6 +9,9 @@ use App\Http\Controllers\backend\DistrictController;
 use App\Http\Controllers\backend\SubDistrictController;
 use App\Http\Controllers\backend\PostController;
 use App\Http\Controllers\backend\SettingController;
+use App\Http\Controllers\backend\WebsiteController;
+use App\Http\Controllers\backend\PhotoController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -91,3 +94,39 @@ Route::post('seo/setting/{id}', [SettingController::class, 'updateseo'])->name('
 //admin items
 Route::get('partner/setting', [SettingController::class, 'itemsetting'])->name('item.setting');
 Route::post('partner/setting/{id}', [SettingController::class, 'updateitem'])->name('update.partners');
+
+//admin live tv
+Route::get('livetv/setting', [SettingController::class, 'livetvetting'])->name('livetv.setting');
+Route::post('livetv/setting/{id}', [SettingController::class, 'updatelivetv'])->name('update.livetv');
+Route::get('livetv/active/{id}', [SettingController::class, 'livetvactive'])->name('active.livetv');
+Route::get('livetv/deactive/{id}', [SettingController::class, 'livetvdeactive'])->name('deactive.livetv');
+
+//admin notices
+Route::get('notice/setting', [SettingController::class, 'noticeseting'])->name('notice.setting');
+Route::post('notice/setting/{id}', [SettingController::class, 'updatenotice'])->name('update.notice');
+Route::get('notice/active/{id}', [SettingController::class, 'noticeactive'])->name('active.notice');
+Route::get('notice/deactive/{id}', [SettingController::class, 'noticedeactive'])->name('deactive.notice');
+
+//adminwebsite
+Route::get('website/setting', [WebsiteController::class, 'websitesetting'])->name('all.website');
+Route::get('website/add', [WebsiteController::class, 'addwebsite'])->name('add.website');
+Route::post('website/store', [WebsiteController::class, 'storewebsite'])->name('store.website');
+Route::get('website/edit/{id}', [WebsiteController::class, 'editwebsite'])->name('edit.website');
+Route::post('website/update/{id}', [WebsiteController::class, 'updatewebsite'])->name('update.website');
+Route::get('website/delete/{id}', [WebsiteController::class, 'deletewebsite'])->name('delete.website');
+
+//admin4to
+Route::get('photo/setting', [PhotoController::class, 'photogallery'])->name('photo');
+Route::get('photo/add', [PhotoController::class, 'addphoto'])->name('add.photo');
+Route::post('store/photo', [PhotoController::class, 'storephoto'])->name('store.photo');
+Route::get('photo/edit/{id}', [PhotoController::class, 'editphoto'])->name('edit.photo');
+Route::post('update/photo/{id}', [PhotoController::class, 'updatephoto'])->name('update.photo');
+Route::get('delete/photo/{id}', [PhotoController::class, 'deletephoto'])->name('delete.photo');
+
+//admin vide
+Route::get('video/galley', [PhotoController::class, 'videogalley'])->name('video');
+Route::get('photo/video', [PhotoController::class, 'addvideo'])->name('add.video');
+Route::post('store/video', [PhotoController::class, 'storevideo'])->name('store.video');
+Route::get('video/edit/{id}', [PhotoController::class, 'editvideo'])->name('edit.video');
+Route::post('video/edit/{id}', [PhotoController::class, 'updateviedo'])->name('update.video');
+Route::get('delete/video/{id}', [PhotoController::class, 'deletedelete'])->name('delete.video');

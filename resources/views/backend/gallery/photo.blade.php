@@ -30,11 +30,11 @@
     <div class="col-lg-12 grid-margin stretch-card">
         <div class="card">
           <div class="card-body">
-            <h4 class="card-title">Category  Page</h4>
+            <h4 class="card-title">Gallery Page</h4>
 
             <div class="template-demo">
-                <a href="{{route('add.category')}}">
-                    <button type="button" class="btn btn-primary btn-rounded btn-fw" style="float: right;">Add Category</button>
+                <a href="{{route('add.photo')}}">
+                    <button type="button" class="btn btn-primary btn-rounded btn-fw" style="float: right;">Add photo</button>
                 </a>
             </div>
         
@@ -43,8 +43,9 @@
                 <thead>
                   <tr>
                     <th> # </th>
-                    <th>Category English </th>
-                    <th> Category Tamil </th>
+                    <th>Title</th>
+                    <th> Image </th>
+                    <th> type </th>
                     <th> Action </th>
                   </tr>
                 </thead>
@@ -52,21 +53,28 @@
                 
                 <tbody>
                   @php ($i = 1)
-                    @foreach ($category as $cat)
+                    @foreach ($photo as $img)
                         <tr>
                         <td> {{$i++}} </td>
-                        <td> {{$cat->category_en}} </td>
-                        <td> {{$cat->category_ta}} </td>
+                        <td> {{$img->title}} </td>
+                        <td> <img src="{{asset($img->photo)}}" style="width: 50ps; height: 50px;" ></td>
                         <td> 
-                            <a href="{{route('edit.category', $cat->id)}}" class="btn btn-info">Edit</a>
-                            <a href="{{route('delete.category', $cat->id)}}" class="btn btn-danger" onclick="return confirm('Are you sure to delete?')">Delete</a>
+                            @if($img->type ==1)
+                            <span class="badge badge-success">big photo</span>
+                            @else
+                            <span class="badge badge-info">small photo</span>
+                            @endif
+                        </td>
+                        <td> 
+                            <a href="{{route('edit.photo', $img->id)}}" class="btn btn-info">Edit</a>
+                            <a href="{{route('delete.photo', $img->id)}}" class="btn btn-danger" onclick="return confirm('Are you sure to delete?')">Delete</a>
 
                         </td>
                       </tr>
                     @endforeach
                 </tbody>
               </table>
-              {{$category->links('pagination-link')}}
+              {{$photo->links('pagination-link')}}
             </div>
           </div>
         </div>

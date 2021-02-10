@@ -32,48 +32,22 @@
     <div class="col-md-12 grid-margin stretch-card">
         <div class="card">
           <div class="card-body">
-            <h4 class="card-title">Update Social links</h4>
-            <form class="forms-sample" method="POST" action="{{route('update.social', $social->id)}}">
-
+            <h4 class="card-title">Edit website</h4>
+            <form class="forms-sample" method="POST" action="{{route('update.website',$websites->id)}}">
+              @csrf
               <div class="form-group">
-                  @csrf
-                <label for="exampleInputUsername1">Facebook</label>
-                <input type="text" class="form-control" name="facebook" value="{{$social->facebook}}" >
-                @error('facebook')
+                 
+                <label for="exampleInputUsername1">website name</label>
+                <input type="text" class="form-control" name="website_name" value="{{$websites->website_name}}">
+                @error('website_name')
                     <span class="text text-danger">{{$message}}</span>
                 @enderror
               </div>
 
               <div class="form-group">
-                <label for="exampleInputEmail1">Twitter</label>
-                <input type="text" class="form-control" name="twitter" value="{{$social->twitter}}" >
-                @error('twitter')
-                    <span class="text text-danger">{{$message}}</span>
-                @enderror
-              </div>
-
-
-              <div class="form-group">
-                <label for="exampleInputEmail1">youtube</label>
-                <input type="text" class="form-control" name="youtube" value="{{$social->youtube}}" >
-                @error('youtube')
-                    <span class="text text-danger">{{$message}}</span>
-                @enderror
-              </div>
-
-
-              <div class="form-group">
-                <label for="exampleInputEmail1">linkedin</label>
-                <input type="text" class="form-control" name="linkedin" value="{{$social->linkedin}}" >
-                @error('linkedin')
-                    <span class="text text-danger">{{$message}}</span>
-                @enderror
-              </div>
-
-              <div class="form-group">
-                <label for="exampleInputEmail1">instagram</label>
-                <input type="text" class="form-control" name="instagram" value="{{$social->instagram}}" >
-                @error('instagram')
+                <label for="exampleInputEmail1">website link</label>
+                <input type="text" class="form-control" name="website_link" value="{{$websites->website_link}}">
+                @error('website_link')
                     <span class="text text-danger">{{$message}}</span>
                 @enderror
               </div>
@@ -83,6 +57,8 @@
           </div>
         </div>
       </div>
+
+
 
 
 

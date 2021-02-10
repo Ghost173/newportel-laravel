@@ -30,11 +30,11 @@
     <div class="col-lg-12 grid-margin stretch-card">
         <div class="card">
           <div class="card-body">
-            <h4 class="card-title">Category  Page</h4>
+            <h4 class="card-title">Video Gallry</h4>
 
             <div class="template-demo">
-                <a href="{{route('add.category')}}">
-                    <button type="button" class="btn btn-primary btn-rounded btn-fw" style="float: right;">Add Category</button>
+                <a href="{{route('add.video')}}">
+                    <button type="button" class="btn btn-primary btn-rounded btn-fw" style="float: right;">Add video</button>
                 </a>
             </div>
         
@@ -43,8 +43,8 @@
                 <thead>
                   <tr>
                     <th> # </th>
-                    <th>Category English </th>
-                    <th> Category Tamil </th>
+                    <th>Title</th>
+                    <th> type </th>
                     <th> Action </th>
                   </tr>
                 </thead>
@@ -52,21 +52,28 @@
                 
                 <tbody>
                   @php ($i = 1)
-                    @foreach ($category as $cat)
+                    @foreach ($video as $vid)
                         <tr>
                         <td> {{$i++}} </td>
-                        <td> {{$cat->category_en}} </td>
-                        <td> {{$cat->category_ta}} </td>
+                        <td> {{$vid->title}} </td>
+
                         <td> 
-                            <a href="{{route('edit.category', $cat->id)}}" class="btn btn-info">Edit</a>
-                            <a href="{{route('delete.category', $cat->id)}}" class="btn btn-danger" onclick="return confirm('Are you sure to delete?')">Delete</a>
+                            @if($vid->type ==1)
+                            <span class="badge badge-success">big video</span>
+                            @else
+                            <span class="badge badge-info">small video</span>
+                            @endif
+                        </td>
+                        <td> 
+                            <a href="{{route('edit.video', $vid->id)}}" class="btn btn-info">Edit</a>
+                            <a href="{{route('delete.video', $vid->id)}}" class="btn btn-danger" onclick="return confirm('Are you sure to delete?')">Delete</a>
 
                         </td>
                       </tr>
                     @endforeach
                 </tbody>
               </table>
-              {{$category->links('pagination-link')}}
+              {{$video->links('pagination-link')}}
             </div>
           </div>
         </div>

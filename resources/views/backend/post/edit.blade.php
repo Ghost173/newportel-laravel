@@ -176,7 +176,7 @@
   
                   <div class="form-group col-md-6">
                     <label for="exampleInputName1">Tag in tamil</label>
-                    <input type="text" class="form-control" id="exampleInputName1" name="tags_ta"  value="{{$post->tags_ta}} style="color:white;">
+                    <input type="text" class="form-control" id="exampleInputName1" name="tags_ta"  value="{{$post->tags_ta}}" style="color:white;">
                   </div>
   
                 </div>
