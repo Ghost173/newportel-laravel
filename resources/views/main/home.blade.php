@@ -546,35 +546,35 @@
                         <div class="photo_list_bg">
                             
                             <div class="photo_img photo_border active">
-                                <img src="assets/img/news.jpg" alt="image" onclick="currentDiv(1)">
+                                <img src="{{asset('frontend/assets/img/news.jpg')}}" alt="image" onclick="currentDiv(1)">
                                 <div class="heading-03">
                                     Casting of Israeli actress as Cleopatra sparks anger
                                 </div>
                             </div>
 
                             <div class="photo_img photo_border">
-                                <img src="assets/img/news.jpg" alt="image" onclick="currentDiv(1)">
+                                <img src="{{asset('frontend/assets/img/news.jpg')}}" alt="image" onclick="currentDiv(1)">
                                 <div class="heading-03">
                                    Casting of Israeli actress as Cleopatra sparks anger
                                 </div>
                             </div>
 
                             <div class="photo_img photo_border">
-                                <img src="assets/img/news.jpg" alt="image" onclick="currentDiv(1)">
+                                <img src="{{asset('frontend/assets/img/news.jpg')}}" alt="image" onclick="currentDiv(1)">
                                 <div class="heading-03">
                                    Casting of Israeli actress as Cleopatra sparks anger
                                 </div>
                             </div>
 
                             <div class="photo_img photo_border">
-                                <img src="assets/img/news.jpg" alt="image" onclick="currentDiv(1)">
+                                <img src="{{asset('frontend/assets/img/news.jpg')}}" alt="image" onclick="currentDiv(1)">
                                 <div class="heading-03">
                                    Casting of Israeli actress as Cleopatra sparks anger
                                 </div>
                             </div>
 
                             <div class="photo_img photo_border">
-                                <img src="assets/img/news.jpg" alt="image" onclick="currentDiv(1)">
+                                <img src="{{asset('frontend/assets/img/news.jpg')}}" alt="image" onclick="currentDiv(1)">
                                 <div class="heading-03">
                                    Casting of Israeli actress as Cleopatra sparks anger
                                 </div>
@@ -643,7 +643,7 @@
                         <div class="gallery_sec owl-carousel">
 
                             <div class="video_image" style="width:100%" onclick="currentDivs(1)">
-                                <img src="assets/img/news.jpg"  alt="Avatar">
+                                <img src="{{asset('frontend/assets/img/news.jpg')}}"  alt="Avatar">
                                 <div class="heading-03">
                                     <div class="content_padding">
                                        Kumar Sanu tests positive for coronavirus
@@ -652,7 +652,7 @@
                             </div>
 
                             <div class="video_image" style="width:100%" onclick="currentDivs(1)">
-                                <img src="assets/img/news.jpg"  alt="Avatar">
+                                <img src="{{asset('frontend/assets/img/news.jpg')}}"  alt="Avatar">
                                 <div class="heading-03">
                                     <div class="content_padding">
                                    Kumar Sanu tests positive for coronavirus
@@ -661,7 +661,7 @@
                             </div>
 
                             <div class="video_image" style="width:100%" onclick="currentDivs(1)">
-                                <img src="assets/img/news.jpg"  alt="Avatar">
+                                <img src="{{asset('frontend/assets/img/news.jpg')}}"  alt="Avatar">
                                 <div class="heading-03">
                                     <div class="content_padding">
                                       Kumar Sanu tests positive for coronavirus  
@@ -670,7 +670,7 @@
                             </div>
 
                             <div class="video_image" style="width:100%" onclick="currentDivs(1)">
-                                <img src="assets/img/news.jpg"  alt="Avatar">
+                                <img src="{{asset('frontend/assets/img/news.jpg')}}"  alt="Avatar">
                                 <div class="heading-03">
                                     <div class="content_padding">
                                        Kumar Sanu tests positive for coronavirus
