@@ -25,7 +25,7 @@ use App\Http\Controllers\backend\PhotoController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('main.home');
 });
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
