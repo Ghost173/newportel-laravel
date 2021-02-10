@@ -37,10 +37,25 @@
                                 @endphp
 
                                 <li class="dropdown">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{$row->category_en}} <b class="caret"></b></a>
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                        @if(session()->get('lang')== 'tamil')
+                                        {{$row->category_ta}}
+                                        @else
+                                        {{$row->category_en}}
+                                        @endif    
+                                        
+                                    <b class="caret"></b></a>
+                                    
                                 <ul class="dropdown-menu">
                                     @foreach ($subcat as $item)
-                                    <li><a href="#">{{$item->subcategory_en}}</a></li>
+                                    <li><a href="#">
+                                        
+                                        @if(session()->get('lang') == 'tamil')
+                                        {{$item->subcategory_ta}}
+                                        @else
+                                        {{$item->subcategory_en}}
+                                        @endif
+                                    </a></li>
                                     @endforeach
                                     
                                     
@@ -64,7 +79,13 @@
                 <div class="header-icon">
                     <ul>
                         <!-- version-start -->
-                        <li class="version"><a href="#"><B>HINDI</B></a></li>&nbsp;&nbsp;&nbsp;
+                        @if(session()->get('lang') == 'tamil')
+                        <li class="version"><a href="{{route('lang.english')}}"><B>English</B></a></li>&nbsp;&nbsp;&nbsp;
+                        @else 
+
+                        <li class="version"><a href="{{route('lang.tamil')}}"><B>TAMIl</B></a></li>&nbsp;&nbsp;&nbsp;
+                        @endif
+
                         <!-- login-start -->
                     
                         <!-- search-start -->
