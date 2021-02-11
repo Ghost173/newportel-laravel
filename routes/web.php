@@ -11,6 +11,7 @@ use App\Http\Controllers\backend\PostController;
 use App\Http\Controllers\backend\SettingController;
 use App\Http\Controllers\backend\WebsiteController;
 use App\Http\Controllers\backend\PhotoController;
+use App\Http\Controllers\frontend\ExtraController;
 
 
 /*
@@ -25,7 +26,7 @@ use App\Http\Controllers\backend\PhotoController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('main.home');
 });
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
@@ -130,3 +131,14 @@ Route::post('store/video', [PhotoController::class, 'storevideo'])->name('store.
 Route::get('video/edit/{id}', [PhotoController::class, 'editvideo'])->name('edit.video');
 Route::post('video/edit/{id}', [PhotoController::class, 'updateviedo'])->name('update.video');
 Route::get('delete/video/{id}', [PhotoController::class, 'deletedelete'])->name('delete.video');
+
+
+
+
+
+
+
+
+///frornt end
+Route::get('lang/tamil', [ExtraController::class, 'tamil'])->name('lang.tamil');
+Route::get('lang/english', [ExtraController::class, 'english'])->name('lang.english');

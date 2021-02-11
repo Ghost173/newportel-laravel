@@ -63,7 +63,7 @@
 
               <div class="form-group">
                 <label for="exampleTextarea1">meta_description</label>
-                <textarea class="form-control" name="meta_description" id="summernote">{{$seo->meta_description}}</textarea>
+                <textarea class="form-control" name="meta_description" >{{$seo->meta_description}}</textarea>
                 @error('meta_description')
                   <span class="text text-danger">{{$message}}</span>
               @enderror
@@ -72,7 +72,7 @@
 
               <div class="form-group">
                 <label for="exampleTextarea1">google_analytics</label>
-                <textarea class="form-control" name="google_analytics" id="summernote1">{{$seo->google_analytics}}</textarea>
+                <textarea class="form-control" name="google_analytics" >{{$seo->google_analytics}}</textarea>
                 @error('google_analytics')
                   <span class="text text-danger">{{$message}}</span>
               @enderror
