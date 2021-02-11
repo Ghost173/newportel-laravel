@@ -1,5 +1,8 @@
 @php
     $category = DB::table('categories')->orderBy('id','ASC')->get();
+
+    $social = DB::table('socials')->first();
+
 @endphp
 
 <section class="hdr_section">
@@ -122,10 +125,11 @@
                             <div class="dropdown">
                               <button class="dropbtn-02"><i class="fa fa-thumbs-up" aria-hidden="true"></i></button>
                               <div class="dropdown-content">
-                                <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i> Facebook</a>
-                                <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i> Twitter</a>
-                                <a href="#"><i class="fa fa-youtube-play" aria-hidden="true"></i> Youtube</a>
-                                <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i> Instagram</a>
+                            
+                                <a href="{{$social->facebook}}" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i> Facebook</a>
+                                <a href="{{$social->twitter}}" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i> Twitter</a>
+                                <a href="{{$social->youtube}}" target="_blank"><i class="fa fa-youtube-play" aria-hidden="true"></i> Youtube</a>
+                                <a href="{{$social->instagram}}" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i> Instagram</a>
                               </div>
                             </div>
                         </li>
