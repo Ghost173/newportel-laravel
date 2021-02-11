@@ -59,8 +59,8 @@
               
 
               <div class="form-group">
-                <label for="exampleTextarea1">Livetv embed code</label>
-                <textarea class="form-control" name="embed_code" id="summernote">{{$livetv->embed_code}}</textarea>
+                <label for="exampleTextarea122">Livetv embed code</label>
+                <textarea class="form-control" name="embed_code" id="summernote111">{{$livetv->embed_code}}</textarea>
                 @error('embed_code')
                   <span class="text text-danger">{{$message}}</span>
               @enderror

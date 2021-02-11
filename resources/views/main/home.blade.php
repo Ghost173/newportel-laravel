@@ -134,14 +134,27 @@
                     </div>
                 </div><!-- /.add-close -->	
                 
-                <!-- youtube-live-start -->	
+
+                @php
+                    $livetv = DB::table('livetcs')->first();
+
+                @endphp
+
+                @if ($livetv->status == 1)
                 <div class="cetagory-title-03">Live TV</div>
                 <div class="photo">
                     <div class="embed-responsive embed-responsive-16by9 embed-responsive-item" style="margin-bottom:5px;">
+                        {!!$livetv->embed_code!!}
          
-<iframe width="729" height="410" src="https://www.youtube.com/embed/S81Kte7X9uk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        {{-- <iframe width="729" height="410" src="https://www.youtube.com/embed/S81Kte7X9uk" 
+                        frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen></iframe> --}}
                     </div>
-                </div><!-- /.youtube-live-close -->	
+                </div>    
+                @endif
+                <!-- youtube-live-start -->	
+                
+                <!-- /.youtube-live-close -->	
                 
                 <!-- facebook-page-start -->
                 <div class="cetagory-title-03">Facebook </div>
