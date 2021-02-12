@@ -168,3 +168,29 @@
         </div>
     </div>
 </section>
+
+
+@php
+    $headline = DB::table('posts')->where('headline',1)->limit(3)->get();
+@endphp
+
+<section>
+    <div class="container-fluid">
+        <div class="row scroll">
+            <div class="col-md-2 col-sm-3 scroll_01 ">
+                Breaking News :
+            </div>
+            <div class="col-md-10 col-sm-9 scroll_02">
+                <marquee>
+
+                    @foreach ($headline as $item)
+                    @if (session()->get('lang') == 'english')
+                    **{{$item->title_en}}
+                    @endif
+                      **  {{$item->title_ta}}
+                    @endforeach
+                </marquee>
+            </div>
+        </div>
+    </div>
+</section>   
