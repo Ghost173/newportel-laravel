@@ -484,8 +484,35 @@
                     </div>
                 </div>
                 <!-- Namaj Times -->
-                <div class="cetagory-title-03">Prayer Time </div>
-                Prayer Times count option here
+
+                @php
+                    $notice = DB::table('prayers')->first();
+                @endphp
+                <div class="cetagory-title-03">
+
+                    @if(session()->get('lang')== 'tamil')
+                    இன்றைய  நாள் 
+                    @else
+                    Today Moto
+                    @endif 
+
+                </div>
+                <table class="table">
+                   <tr>
+                       <th>{{$notice->item1}}</th>
+                   </tr>
+                   <tr>
+                    <th>{{$notice->item2}}</th>
+                </tr>
+                <tr>
+                    <th>{{$notice->item3}}</th>
+                </tr>
+                <tr>
+                    <th>{{$notice->item4}}</th>
+                </tr>
+                </table>
+    
+               
                 <!-- Namaj Times -->
                 <div class="cetagory-title-03">Old News  </div>
                 <form action="" method="post">
