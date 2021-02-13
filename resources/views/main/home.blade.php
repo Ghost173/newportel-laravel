@@ -18,14 +18,14 @@
                         <div class="lead-news">
  <div class="service-img"><a href="#"><img src="{{asset($firstsection->image)}}" width="800px" alt="Notebook"></a></div>
                             <div class="content">
-     <h4 class="lead-heading-01"><a href="#">
-        @if(session()->get('lang') == 'tamil')
-        {{$firstsection->title_ta}}
-        @else
-        {{$firstsection->title_en}}
-        @endif 
-        
-        </a> </h4>
+                            <h4 class="lead-heading-01"><a href="#">
+                                @if(session()->get('lang') == 'tamil')
+                                {{$firstsection->title_ta}}
+                                @else
+                                {{$firstsection->title_en}}
+                                @endif 
+                                
+                                </a> </h4>
                             </div>
                         </div>
                     </div>
@@ -38,7 +38,8 @@
                                 <a href="#"><img src="{{asset($item->image)}}" alt="Notebook"></a>
                                 <h4 class="heading-02"><a href="#">
                                     @if(session()->get('lang') == 'tamil')
-                                    {{$item->title_ta}}
+                                    {{ Str::limit($item->title_ta, 40)}}
+                                    {{-- {{$item->title_ta}} --}}
                                     @else
                                     {{$item->title_en}}
                                     @endif 
@@ -49,7 +50,7 @@
                         @endforeach
                            
                             
-                        </div>
+                    </div>
                 
                 <!-- add-start -->	
                 <div class="row">
