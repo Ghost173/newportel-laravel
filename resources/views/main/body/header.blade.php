@@ -171,7 +171,7 @@
 
 
 @php
-    $headline = DB::table('posts')->where('headline',1)->limit(3)->get();
+    $headline = DB::table('posts')->where('headline',1)->orderBy('id','desc')->limit(5)->get();
     $notice = DB::table('notices')->first();
 @endphp
 
