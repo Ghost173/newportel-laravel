@@ -114,25 +114,57 @@
                             </div>
                         </div>
                     </div>
+
+                @php
+                    $scatbg = DB::table('categories')->skip(1)->first();
+                    $catrenews = DB::table('posts')->where('category_id',$scatbg->id)->where('bigthumnail',1)->orderBy('id','desc')->first();
+                    $catrenewnulls = DB::table('posts')->where('category_id',$scatbg->id)->orderBy('id','desc')->limit(3)->get();
+                @endphp
+
                     <div class="col-md-6 col-sm-6">
                         <div class="bg-one">
-                            <div class="cetagory-title"><a href="#">Sports<span>More <i class="fa fa-angle-double-right" aria-hidden="true"></i></span></a></div>
+                            <div class="cetagory-title"><a href="#">
+                                
+                                @if(session()->get('lang') == 'tamil')
+                                {{$scatbg->category_ta}}
+                                @else
+                                {{$scatbg->category_en}}
+                                @endif
+
+                                <span>More <i class="fa fa-angle-double-right" aria-hidden="true"></i></span></a></div>
                             <div class="row">
                                 <div class="col-md-6 col-sm-6">
                                     <div class="top-news">
-                                        <a href="#"><img src="{{asset('frontend/assets/img/news.jpg')}}" alt="Notebook"></a>
-                                        <h4 class="heading-02"><a href="#">Germany claim first Nations League win</a> </h4>
+                                        <a href="#"><img src="{{asset($catrenew->image)}}" alt="Notebook"></a>
+                                        <h4 class="heading-02"><a href="#">
+                                            @if(session()->get('lang') == 'tamil')
+                                            {{$catrenews->title_ta}}
+                                            @else
+                                            {{$catrenews->title_en}}
+                                            @endif     
+                                        
+                                        </a> </h4>
                                     </div>
                                 </div>
+
+
                                 <div class="col-md-6 col-sm-6">
+
+                                    @foreach ($catrenewnulls as $item)
                                     <div class="image-title">
-                                        <a href="#"><img src="{{asset('frontend/assets/img/news.jpg')}}" alt="Notebook"></a>
-                                        <h4 class="heading-03"><a href="#">Germany claim first Nations League win</a> </h4>
+                                        <a href="#"><img src="{{asset($item->image)}}" alt="Notebook"></a>
+                                        <h4 class="heading-03"><a href="#">
+                                            @if(session()->get('lang') == 'tamil')
+                                            {{$item->title_ta}}
+                                            @else
+                                            {{$item->title_en}}
+                                            @endif     
+                                        
+                                        </a> </h4>
                                     </div>
-                                    <div class="image-title">
-                                        <a href="#"><img src="{{asset('frontend/assets/img/news.jpg')}}" alt="Notebook"></a>
-                                        <h4 class="heading-03"><a href="#">Germany claim first Nations League win</a> </h4>
-                                    </div>
+                                    @endforeach
+                                   
+                                    
                                 </div>
                             </div>
                         </div>
@@ -146,6 +178,7 @@
                         <div class="sidebar-add"><img src="{{asset('frontend/assets/img/midbaner1.jpg')}}" alt="" /></div>
                     </div>
                 </div><!-- /.add-close -->	
+                
                 
 
                 @php
