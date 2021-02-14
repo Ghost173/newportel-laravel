@@ -168,3 +168,51 @@
         </div>
     </div>
 </section>
+
+
+@php
+    $headline = DB::table('posts')->where('headline',1)->limit(3)->get();
+    $notice = DB::table('notices')->first();
+@endphp
+
+<section>
+    <div class="container-fluid">
+        <div class="row scroll">
+            <div class="col-md-2 col-sm-3 scroll_01 ">
+                Breaking News :
+            </div>
+            <div class="col-md-10 col-sm-9 scroll_02">
+                <marquee>
+
+                    @foreach ($headline as $item)
+                    @if (session()->get('lang') == 'english')
+                    **{{$item->title_en}}
+                    @endif
+                      **  {{$item->title_ta}}
+                    @endforeach
+                </marquee>
+            </div>
+        </div>
+    </div>
+</section>   
+
+
+@if ($notice->status == 1)
+<section>
+    <div class="container-fluid">
+        <div class="row scroll">
+            <div class="col-md-2 col-sm-3 scroll_01" style="background-color: green;">
+               Notice :
+            </div>
+            <div class="col-md-10 col-sm-9 scroll_02" style="background-color: red;">
+                <marquee>
+
+                    @foreach ($headline as $item)
+                     {!!$notice->notice!!}
+                    @endforeach
+                </marquee>
+            </div>
+        </div>
+    </div>
+</section>  
+@endif

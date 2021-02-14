@@ -2,6 +2,12 @@
 @section('content')
     
 
+@php
+    $firstsection = DB::table('posts')->where('first_thumnail', 1)->orderBy('id','desc')->first();
+
+    $fseimg = DB::table('posts')->where('first_section', 1)->orderBy('id','desc')->limit(8)->get();
+@endphp
+
 <section class="news-section">
     <div class="container-fluid">
         <div class="row">
@@ -10,64 +16,41 @@
                     <div class="col-md-1 col-sm-1 col-lg-1"></div>
                     <div class="col-md-10 col-sm-10">
                         <div class="lead-news">
- <div class="service-img"><a href="#"><img src="{{asset('frontend/assets/img/news.jpg')}}" width="800px" alt="Notebook"></a></div>
+ <div class="service-img"><a href="#"><img src="{{asset($firstsection->image)}}" width="800px" alt="Notebook"></a></div>
                             <div class="content">
-     <h4 class="lead-heading-01"><a href="#">Modi invited to join March 26 prog in person</a> </h4>
+                            <h4 class="lead-heading-01"><a href="#">
+                                @if(session()->get('lang') == 'tamil')
+                                {{$firstsection->title_ta}}
+                                @else
+                                {{$firstsection->title_en}}
+                                @endif 
+                                
+                                </a> </h4>
                             </div>
                         </div>
                     </div>
                     
                 </div>
                     <div class="row">
-                            <div class="col-md-3 col-sm-3">
-                                <div class="top-news">
-                                    <a href="#"><img src="{{asset('frontend/assets/img/news.jpg')}}" alt="Notebook"></a>
-                                    <h4 class="heading-02"><a href="#">TCB to sell potato at Tk 25 per kg: Minister</a> </h4>
-                                </div>
-                            </div>
-                            <div class="col-md-3 col-sm-3">
-                                <div class="top-news">
-                                    <a href="#"><img src="{{asset('frontend/assets/img/news.jpg')}}" alt="Notebook"></a>
-                                    <h4 class="heading-02"><a href="#">TCB to sell potato at Tk 25 per kg: Minister</a> </h4>
-                                </div>
-                            </div>
-                            <div class="col-md-3 col-sm-3">
-                                <div class="top-news">
-                                    <a href="#"><img src="{{asset('frontend/assets/img/news.jpg')}}" alt="Notebook"></a>
-                                    <h4 class="heading-02"><a href="#">TCB to sell potato at Tk 25 per kg: Minister</a> </h4>
-                                </div>
-                            </div>
-                            <div class="col-md-3 col-sm-3">
-                                <div class="top-news">
-                                    <a href="#"><img src="{{asset('frontend/assets/img/news.jpg')}}" alt="Notebook"></a>
-                                    <h4 class="heading-02"><a href="#">Working to provide better future for children: PM</a> </h4>
-                                </div>
-                            </div>
-                                <div class="col-md-3 col-sm-3">
-                                <div class="top-news">
-                                    <a href="#"><img src="{{asset('frontend/assets/img/news.jpg')}}" alt="Notebook"></a>
-                                    <h4 class="heading-02"><a href="#">Bangladesh sees 14 more deaths, 1274 fresh cases</a> </h4>
-                                </div>
-                            </div>
-                            <div class="col-md-3 col-sm-3">
-                                <div class="top-news">
-                                    <a href="#"><img src="{{asset('frontend/assets/img/news.jpg')}}" alt="Notebook"></a>
-                                    <h4 class="heading-02"><a href="#">FFs’ monthly honorarium to be raised Tk 20,000</a> </h4>
-                                </div>
-                            </div>
-                            <div class="col-md-3 col-sm-3">
-                                <div class="top-news">
-                                    <a href="#"><img src="{{asset('frontend/assets/img/news.jpg')}}" alt="Notebook"></a>
-                                    <h4 class="heading-02"><a href="#">Working to provide better future for children: PM</a> </h4>
-                                </div>
-                            </div>
-                            <div class="col-md-3 col-sm-3">
-                                <div class="top-news">
-                                    <a href="#"><img src="{{asset('frontend/assets/img/news.jpg')}}" alt="Notebook"></a>
-                                    <h4 class="heading-02"><a href="#">Working to provide better future for children: PM</a> </h4>
-                                </div>
+                        @foreach ($fseimg as $item)
+                        <div class="col-md-3 col-sm-3">
+                            <div class="top-news">
+                                <a href="#"><img src="{{asset($item->image)}}" alt="Notebook"></a>
+                                <h4 class="heading-02"><a href="#">
+                                    @if(session()->get('lang') == 'tamil')
+                                    {{ Str::limit($item->title_ta, 40)}}
+                                    {{-- {{$item->title_ta}} --}}
+                                    @else
+                                    {{$item->title_en}}
+                                    @endif 
+                                
+                                </a> </h4>
                             </div>
                         </div>
+                        @endforeach
+                           
+                            
+                    </div>
                 
                 <!-- add-start -->	
                 <div class="row">
@@ -79,24 +62,54 @@
                 <!-- news-start -->
                 <div class="row">
                     <div class="col-md-6 col-sm-6">
+
+                        @php
+                            $fcatbg = DB::table('categories')->first();
+                            $catrenew = DB::table('posts')->where('category_id',$fcatbg->id)->where('bigthumnail',1)->orderBy('id','desc')->first();
+                            $catrenewnull = DB::table('posts')->where('category_id',$fcatbg->id)->where('bigthumnail',NULL)->orderBy('id','desc')->limit(3)->get();
+                        @endphp
                         <div class="bg-one">
-                            <div class="cetagory-title"><a href="#">National <span>More <i class="fa fa-angle-double-right" aria-hidden="true"></i></span></a></div>
+                            <div class="cetagory-title"><a href="#">
+                                @if(session()->get('lang') == 'tamil')
+                                    {{$fcatbg->category_ta}}
+                                    @else
+                                    {{$fcatbg->category_en}}
+                                    @endif 
+                                
+                                <span>More <i class="fa fa-angle-double-right" aria-hidden="true"></i></span></a></div>
                             <div class="row">
+                                
+                               
+
                                 <div class="col-md-6 col-sm-6">
                                     <div class="top-news">
-                                        <a href="#"><img src="{{asset('frontend/assets/img/news.jpg')}}" alt="Notebook"></a>
-                                        <h4 class="heading-02"><a href="#">Dhaka ranks worst in air quality index</a> </h4>
+                                        <a href="#"><img src="{{asset($catrenew->image)}}" alt="Notebook"></a>
+                                        <h4 class="heading-02"><a href="#">
+                                            
+                                            @if(session()->get('lang') == 'tamil')
+                                            {{$catrenew->title_ta}}
+                                            @else
+                                            {{$catrenew->title_en}}
+                                            @endif 
+                                        </a> </h4>
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-sm-6">
+                                    @foreach ($catrenewnull as $item)
                                     <div class="image-title">
-                                        <a href="#"><img src="{{asset('frontend/assets/img/news.jpg')}}" alt="Notebook"></a>
-                                        <h4 class="heading-03"><a href="#">Dhaka ranks worst in air quality index</a> </h4>
+                                        <a href="#"><img src="{{asset($item->image)}}" alt="Notebook"></a>
+                                        <h4 class="heading-03"><a href="#">
+                                            @if(session()->get('lang') == 'tamil')
+                                            {{$item->title_ta}}
+                                            @else
+                                            {{$item->title_en}}
+                                            @endif 
+                                        
+                                        </a> </h4>
                                     </div>
-                                    <div class="image-title">
-                                        <a href="#"><img src="{{asset('frontend/assets/img/news.jpg')}}" alt="Notebook"></a>
-                                        <h4 class="heading-03"><a href="#">Dhaka ranks worst in air quality index</a> </h4>
-                                    </div>
+                                    @endforeach
+                                   
+                                   
                                 </div>
                             </div>
                         </div>
@@ -484,8 +497,35 @@
                     </div>
                 </div>
                 <!-- Namaj Times -->
-                <div class="cetagory-title-03">Prayer Time </div>
-                Prayer Times count option here
+
+                @php
+                    $notice = DB::table('prayers')->first();
+                @endphp
+                <div class="cetagory-title-03">
+
+                    @if(session()->get('lang')== 'tamil')
+                    இன்றைய  நாள் 
+                    @else
+                    Today Moto
+                    @endif 
+
+                </div>
+                <table class="table">
+                   <tr>
+                       <th>{{$notice->item1}}</th>
+                   </tr>
+                   <tr>
+                    <th>{{$notice->item2}}</th>
+                </tr>
+                <tr>
+                    <th>{{$notice->item3}}</th>
+                </tr>
+                <tr>
+                    <th>{{$notice->item4}}</th>
+                </tr>
+                </table>
+                                        
+               
                 <!-- Namaj Times -->
                 <div class="cetagory-title-03">Old News  </div>
                 <form action="" method="post">
@@ -501,30 +541,17 @@
                <br><br><br><br><br>
                <div class="cetagory-title-04"> Important Website</div>
                <div class="">
+                   @php
+                       $websites = DB::table('websites')->get();
+                   @endphp
+
+                   @foreach ($websites as $website)
                    <div class="news-title-02">
-                       <h4 class="heading-03"><a href="#"><i class="fa fa-check" aria-hidden="true"></i> Both education and life must be saved  </a> </h4>
-                   </div>
-                   <div class="news-title-02">
-                       <h4 class="heading-03"><a href="#"><i class="fa fa-check" aria-hidden="true"></i> Both education and life must be saved</a> </h4>
-                   </div>
-                   <div class="news-title-02">
-                       <h4 class="heading-03"><a href="#"><i class="fa fa-check" aria-hidden="true"></i> Both education and life must be saved  </a> </h4>
-                   </div>
-                   <div class="news-title-02">
-                       <h4 class="heading-03"><a href="#"><i class="fa fa-check" aria-hidden="true"></i> Both education and life must be saved </a> </h4>
-                   </div>
-                   <div class="news-title-02">
-                       <h4 class="heading-03"><a href="#"><i class="fa fa-check" aria-hidden="true"></i> Both education and life must be saved  </a> </h4>
-                   </div>
-                   <div class="news-title-02">
-                       <h4 class="heading-03"><a href="#"><i class="fa fa-check" aria-hidden="true"></i> Both education and life must be saved  </a> </h4>
-                   </div>
-                   <div class="news-title-02">
-                       <h4 class="heading-03"><a href="#"><i class="fa fa-check" aria-hidden="true"></i> Both education and life must be saved  </a> </h4>
-                   </div>
-                   <div class="news-title-02">
-                       <h4 class="heading-03"><a href="#"><i class="fa fa-check" aria-hidden="true"></i> Both education and life must be saved </a> </h4>
-                   </div>
+                    <h4 class="heading-03"><a href="{{$website->website_link}}" target="_blank"><i class="fa fa-check" aria-hidden="true"></i> {{$website->website_name}} </a> </h4>
+                </div>
+                   @endforeach
+                   
+                   
                </div>
 
             </div>
