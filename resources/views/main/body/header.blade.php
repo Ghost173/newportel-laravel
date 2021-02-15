@@ -185,10 +185,10 @@
                 <marquee>
 
                     @foreach ($headline as $item)
-                    @if (session()->get('lang') == 'english')
-                    **{{$item->title_en}}
+                    @if (session()->get('lang') == 'tamil')
+                    **{{$item->title_ta}}
                     @endif
-                      **  {{$item->title_ta}}
+                      **  {{$item->title_en}}
                     @endforeach
                 </marquee>
             </div>

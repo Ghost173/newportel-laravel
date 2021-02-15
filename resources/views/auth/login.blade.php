@@ -37,6 +37,14 @@
                     <label>Password *</label>
                     <input type="password" id="password" name="password" class="form-control p_input">
                   </div>
+
+                  <div class="form-group">
+                    <div class="g-recaptcha" data-sitekey="6Lc5GlgaAAAAAIxXrZ3899ZZn96_Z2kWXEDj_VoE"></div>
+                    @if($errors->has('g-recaptcha-response'))
+                    <span class="text text-dander"> {{$errors->first('g-recaptcha-response')}}</span>
+                    @endif
+                  </div>
+
                   <div class="form-group d-flex align-items-center justify-content-between">
                     <div class="form-check">
                       <label class="form-check-label">
@@ -45,7 +53,9 @@
                     <a href="{{ route('password.request') }}" class="forgot-pass">Forgot password</a>
                   </div>
                   <div class="text-center">
-                    <button type="submit" class="btn btn-primary btn-block enter-btn">Login</button>
+                    <button data-sitekey="6LfgGFgaAAAAAIgbedASyn5YJdLHNRQ-qWYtiazn" 
+                    data-callback='onSubmit' 
+                    data-action='submit' type="submit" class="btn btn-primary btn-block enter-btn">Login</button>
                   </div>
                   {{-- <div class="d-flex">
                     <button class="btn btn-facebook mr-2 col">
@@ -76,6 +86,12 @@
     <script src="{{asset('backend/assets/js/misc.js')}}"></script>
     <script src="{{asset('backend/assets/js/settings.js')}}"></script>
     <script src="{{asset('backend/assets/js/todolist.js')}}"></script>
+    <script src="https://www.google.com/recaptcha/api.js"></script>
+    <script>
+      function onSubmit(token) {
+        document.getElementById("demo-form").submit();
+      }
+    </script>
     <!-- endinject -->
   </body>
 </html>
