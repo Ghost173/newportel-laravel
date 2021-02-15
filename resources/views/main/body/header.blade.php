@@ -171,7 +171,7 @@
 
 
 @php
-    $headline = DB::table('posts')->where('headline',1)->limit(3)->get();
+    $headline = DB::table('posts')->where('headline',1)->orderBy('id','desc')->limit(5)->get();
     $notice = DB::table('notices')->first();
 @endphp
 
@@ -185,10 +185,10 @@
                 <marquee>
 
                     @foreach ($headline as $item)
-                    @if (session()->get('lang') == 'english')
-                    **{{$item->title_en}}
+                    @if (session()->get('lang') == 'tamil')
+                    **{{$item->title_ta}}
                     @endif
-                      **  {{$item->title_ta}}
+                      **  {{$item->title_en}}
                     @endforeach
                 </marquee>
             </div>

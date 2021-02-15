@@ -75,6 +75,10 @@
     <script src="{{asset('backend/assets/js/misc.js')}}"></script>
     <script src="{{asset('backend/assets/js/settings.js')}}"></script>
     <script src="{{asset('backend/assets/js/todolist.js')}}"></script>
+
+
+    <script src="https://www.google.com/recaptcha/api.js"></script>
+
     <!-- endinject -->
 
     <!-- Custom js for this page -->
