@@ -509,6 +509,14 @@
 
 
             </div>
+
+            @php
+                $latest = DB::table('posts')->orderBy('id','desc')->limit(5)->get();
+                $fav = DB::table('posts')->orderBy('id','desc')->inRandomOrder()->limit(5)->get();
+                $hig  = DB::table('posts')->orderBy('id','asc')->inRandomOrder()->limit(5)->get();
+            @endphp
+
+
             <div class="col-md-3 col-sm-3">
                 <div class="tab-header">
                     <!-- Nav tabs -->
@@ -522,77 +530,38 @@
                     <div class="tab-content ">
                         <div role="tabpanel" class="tab-pane in active" id="tab21">
                             <div class="news-titletab">
+
+                                @foreach ($latest as $item)
                                 <div class="news-title-02">
-                                    <h4 class="heading-03"><a href="#">Both education and life must be saved</a> </h4>
+                                    <h4 class="heading-03"><a href="#">{{$item->tags_en}}</a> </h4>
                                 </div>
-                                <div class="news-title-02">
-                                    <h4 class="heading-03"><a href="#">Both education and life must be saved</a> </h4>
-                                </div>
-                                <div class="news-title-02">
-                                    <h4 class="heading-03"><a href="#">Both education and life must be saved</a> </h4>
-                                </div>
-                                <div class="news-title-02">
-                                    <h4 class="heading-03"><a href="#">Both education and life must be saved</a> </h4>
-                                </div>
-                                <div class="news-title-02">
-                                    <h4 class="heading-03"><a href="#">Both education and life must be saved</a> </h4>
-                                </div>
-                                <div class="news-title-02">
-                                    <h4 class="heading-03"><a href="#">Both education and life must be saved</a> </h4>
-                                </div>
-                                <div class="news-title-02">
-                                    <h4 class="heading-03"><a href="#">Both education and life must be saved</a> </h4>
-                                </div>
+                                @endforeach
+                                
+                                
                             </div>
                         </div>
                         <div role="tabpanel" class="tab-pane fade" id="tab22">
                             <div class="news-titletab">
+
+                                @foreach ($fav as $item)
                                 <div class="news-title-02">
-                                    <h4 class="heading-03"><a href="#">Both education and life must be saved</a> </h4>
+                                    <h4 class="heading-03"><a href="#">{{$item->tags_en}}</a> </h4>
                                 </div>
-                                <div class="news-title-02">
-                                    <h4 class="heading-03"><a href="#">Both education and life must be saved</a> </h4>
-                                </div>
-                                <div class="news-title-02">
-                                    <h4 class="heading-03"><a href="#">Both education and life must be saved</a> </h4>
-                                </div>
-                                <div class="news-title-02">
-                                    <h4 class="heading-03"><a href="#">Both education and life must be saved</a> </h4>
-                                </div>
-                                <div class="news-title-02">
-                                    <h4 class="heading-03"><a href="#">Both education and life must be saved</a> </h4>
-                                </div>
-                                <div class="news-title-02">
-                                    <h4 class="heading-03"><a href="#">Both education and life must be saved</a> </h4>
-                                </div>
-                                <div class="news-title-02">
-                                    <h4 class="heading-03"><a href="#">Both education and life must be saved</a> </h4>
-                                </div>
+                                @endforeach
+                                
+                                
                             </div>                                          
                         </div>
                         <div role="tabpanel" class="tab-pane fade" id="tab23">	
                             <div class="news-titletab">
+
+                                @foreach ($hig as $item)
                                 <div class="news-title-02">
-                                    <h4 class="heading-03"><a href="#">Both education and life must be saved</a> </h4>
+                                    <h4 class="heading-03"><a href="#">{{$item->tags_en}}</a> </h4>
                                 </div>
-                                <div class="news-title-02">
-                                    <h4 class="heading-03"><a href="#">Both education and life must be saved</a> </h4>
-                                </div>
-                                <div class="news-title-02">
-                                    <h4 class="heading-03"><a href="#">Both education and life must be saved</a> </h4>
-                                </div>
-                                <div class="news-title-02">
-                                    <h4 class="heading-03"><a href="#">Both education and life must be saved</a> </h4>
-                                </div>
-                                <div class="news-title-02">
-                                    <h4 class="heading-03"><a href="#">Both education and life must be saved</a> </h4>
-                                </div>
-                                <div class="news-title-02">
-                                    <h4 class="heading-03"><a href="#">Both education and life must be saved</a> </h4>
-                                </div>
-                                <div class="news-title-02">
-                                    <h4 class="heading-03"><a href="#">Both education and life must be saved</a> </h4>
-                                </div>
+                                @endforeach
+                               
+                                
                             </div>						                                          
                         </div>
                     </div>
