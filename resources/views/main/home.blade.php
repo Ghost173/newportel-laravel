@@ -342,15 +342,24 @@
         <!-- ******* -->
         <div class="row">
             <div class="col-md-6 col-sm-6">
+
+            @php
+                $cat4 = DB::table('categories')->skip(4)->first();
+                $catrenews = DB::table('posts')->where('category_id',$cat4->id)->where('bigthumnail',1)->orderBy('id','desc')->first();
+                $catrenewnulls = DB::table('posts')->where('category_id',$cat4->id)->orderBy('id','desc')->limit(3)->get();
+            @endphp
+
                 <div class="bg-one">
-                    <div class="cetagory-title-02"><a href="#">Biz-Econ<i class="fa fa-angle-right" aria-hidden="true"></i> <span><i class="fa fa-plus" aria-hidden="true"></i> All News  </span></a></div>
+                    <div class="cetagory-title-02"><a href="#">{{$cat4->category_en}}<i class="fa fa-angle-right" aria-hidden="true"></i> <span><i class="fa fa-plus" aria-hidden="true"></i> All News  </span></a></div>
                     <div class="row">
+
                         <div class="col-md-6 col-sm-6">
                             <div class="top-news">
-                                <a href="#"><img src="{{asset('frontend/assets/img/news.jpg')}}" alt="Notebook"></a>
+                                <a href="#"><img src="{{asset($catrenews->image)}}" alt="Notebook"></a>
                                 <h4 class="heading-02"><a href="#">Israel sends treaty delegation to Bahrain with Trump aides</a> </h4>
                             </div>
                         </div>
+
                         <div class="col-md-6 col-sm-6">
                             <div class="image-title">
                                 <a href="#"><img src="{{asset('frontend/assets/img/news.jpg')}}" alt="Notebook"></a>
@@ -667,50 +676,34 @@
                 <div class="gallery_cetagory-title"> Photo Gallery </div>
 
                 <div class="row">
+
+                    @php
+                    $photobig = DB::table('photos')->where('type',1)->orderBy('id','desc')->first();
+                    $photosmall = DB::table('photos')->where('type',0)->orderBy('id','desc')->limit(5)->get();
+                    @endphp
+                
+
                     <div class="col-md-8 col-sm-8">
                         <div class="photo_screen">
                             <div class="myPhotos" style="width:100%">
-                                  <img src="{{asset('frontend/assets/img/news.jpg')}}"  alt="Avatar">
+                                  <img src="{{asset($photobig->photo)}}"  alt="Avatar">
                             </div>
                         </div>
                     </div>
                     <div class="col-md-4 col-sm-4">
                         <div class="photo_list_bg">
-                            
+
+                            @foreach ($photosmall as $item)
+
                             <div class="photo_img photo_border active">
-                                <img src="{{asset('frontend/assets/img/news.jpg')}}" alt="image" onclick="currentDiv(1)">
+                                <img src="{{asset($item->photo)}}" alt="image" onclick="currentDiv(1)">
                                 <div class="heading-03">
-                                    Casting of Israeli actress as Cleopatra sparks anger
+                                   {{$item->title}}
                                 </div>
                             </div>
-
-                            <div class="photo_img photo_border">
-                                <img src="{{asset('frontend/assets/img/news.jpg')}}" alt="image" onclick="currentDiv(1)">
-                                <div class="heading-03">
-                                   Casting of Israeli actress as Cleopatra sparks anger
-                                </div>
-                            </div>
-
-                            <div class="photo_img photo_border">
-                                <img src="{{asset('frontend/assets/img/news.jpg')}}" alt="image" onclick="currentDiv(1)">
-                                <div class="heading-03">
-                                   Casting of Israeli actress as Cleopatra sparks anger
-                                </div>
-                            </div>
-
-                            <div class="photo_img photo_border">
-                                <img src="{{asset('frontend/assets/img/news.jpg')}}" alt="image" onclick="currentDiv(1)">
-                                <div class="heading-03">
-                                   Casting of Israeli actress as Cleopatra sparks anger
-                                </div>
-                            </div>
-
-                            <div class="photo_img photo_border">
-                                <img src="{{asset('frontend/assets/img/news.jpg')}}" alt="image" onclick="currentDiv(1)">
-                                <div class="heading-03">
-                                   Casting of Israeli actress as Cleopatra sparks anger
-                                </div>
-                            </div>
+                            @endforeach
+                          
+                            
 
                         </div>
                     </div>
