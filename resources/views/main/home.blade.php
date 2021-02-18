@@ -18,7 +18,7 @@
                         <div class="lead-news">
  <div class="service-img"><a href="#"><img src="{{asset($firstsection->image)}}" width="800px" alt="Notebook"></a></div>
                             <div class="content">
-                            <h4 class="lead-heading-01"><a href="#">
+                            <h4 class="lead-heading-01"><a href="{{URL::to('view/post/'.$firstsection->id)}}">
                                 @if(session()->get('lang') == 'tamil')
                                 {{$firstsection->title_ta}}
                                 @else

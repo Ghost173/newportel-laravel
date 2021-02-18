@@ -133,12 +133,10 @@ Route::post('video/edit/{id}', [PhotoController::class, 'updateviedo'])->name('u
 Route::get('delete/video/{id}', [PhotoController::class, 'deletedelete'])->name('delete.video');
 
 
-
-
-
-
-
-
 ///frornt end
 Route::get('lang/tamil', [ExtraController::class, 'tamil'])->name('lang.tamil');
 Route::get('lang/english', [ExtraController::class, 'english'])->name('lang.english');
+
+//f single post view
+
+Route::get('view/post/{id}', [ExtraController::class, 'singlepost'])->name('single.post');
