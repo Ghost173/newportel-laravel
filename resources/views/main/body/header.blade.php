@@ -30,7 +30,7 @@
                             <div id="navbarCollapse" class="collapse navbar-collapse">
                                 <ul class="nav navbar-nav">
 
-                                    <li><a href="#">HOME</a></li>
+                                    <li><a href="{{URL::to('/')}}">HOME</a></li>
 
                                 {{-- @if ($category) --}}
                                 @foreach ($category as $row)
@@ -40,7 +40,7 @@
                                 @endphp
 
                                 <li class="dropdown">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    <a href="{{URL::to('categorypost/'.$row->id.'/'.$row->category_en)}}" >
                                         @if(session()->get('lang')== 'tamil')
                                         {{$row->category_ta}}
                                         @else

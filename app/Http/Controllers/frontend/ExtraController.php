@@ -39,4 +39,13 @@ class ExtraController extends Controller
 
             return view('main.single_post', compact('post'));    
     }
+
+
+
+    public function categorypost($id, $category_en) {
+        $catpost = DB::table('posts')->where('category_id',$id)->orderBy('id','desc')
+                    ->paginate(5);
+
+                    return view('main.allpost', compact('catpost','category_en'));            
+    }
 }

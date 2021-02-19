@@ -35,7 +35,7 @@
                         @foreach ($fseimg as $item)
                         <div class="col-md-3 col-sm-3">
                             <div class="top-news">
-                                <a href="#"><img src="{{asset($item->image)}}" alt="Notebook"></a>
+                                <a href="{{URL::to('view/post/'.$item->id)}}"><img src="{{asset($item->image)}}" alt="Notebook"></a>
                                 <h4 class="heading-02"><a href="#">
                                     @if(session()->get('lang') == 'tamil')
                                     {{ Str::limit($item->title_ta, 40)}}
@@ -97,7 +97,7 @@
                                 <div class="col-md-6 col-sm-6">
                                     @foreach ($catrenewnull as $item)
                                     <div class="image-title">
-                                        <a href="#"><img src="{{asset($item->image)}}" alt="Notebook"></a>
+                                        <a href="{{URL::to('view/post/'.$item->id)}}"><img src="{{asset($item->image)}}" alt="Notebook"></a>
                                         <h4 class="heading-03"><a href="#">
                                             @if(session()->get('lang') == 'tamil')
                                             {{$item->title_ta}}
