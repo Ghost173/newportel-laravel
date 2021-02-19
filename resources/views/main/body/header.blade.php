@@ -51,7 +51,7 @@
                                     
                                 <ul class="dropdown-menu">
                                     @foreach ($subcat as $item)
-                                    <li><a href="#">
+                                    <li><a href="{{URL::to('subcategorypost/'.$item->id.'/'.$item->subcategory_en)}}">
                                         
                                         @if(session()->get('lang') == 'tamil')
                                         {{$item->subcategory_ta}}

@@ -10,7 +10,7 @@
             <div class="single_info">
                 <span>
                     <a href="#"><i class="fa fa-home" aria-hidden="true"></i> /
-                    </a> {{$category_en}}		
+                    </a> {{$subcategory_en}}		
                 </span>				    
             </div>
         </div>
@@ -24,7 +24,7 @@
                 </div>															 					
                 
             </div>				
-            @foreach ($catpost as $item)
+            @foreach ($subcatpost as $item)
                 
             <div class="archive_post_sec_again">
                 <div class="row">
@@ -47,11 +47,9 @@
                     </div>
                 </div>
             </div>	
-            
+
 
             @endforeach	
-
-            {{$catpost->links('pagination-link')}}
             		
             			
             
