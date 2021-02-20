@@ -499,6 +499,47 @@
                     </div>
                 </div>
                 
+
+<br><br>
+                <div class="row">
+
+                    @php
+                        $district = DB::table('districts')->get();
+                    @endphp
+                        <div class="cetagory-title-02"><a href="#">Search By district<i class="fa fa-angle-right" aria-hidden="true"></i> <span><i class="fa fa-plus" aria-hidden="true"></i> সব খবর  </span></a></div>
+                   
+
+                        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+                    <form action="{{route('searchby.district')}}" method="get">
+                        @csrf
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <select class="form-control" id="exampleSelectGender" name="district_id" >
+                                    <option disabled selected>Select District</option>
+                                    @foreach ($district as $dis)
+                                      <option value="{{$dis->id}}">{{$dis->district_en}}</option>
+                                    @endforeach
+                                </select>
+                            </div>    
+
+                            <div class="col-lg-4">
+                                <select class="form-control" id="subdistrict_id" name="subdistrict_id" >
+                                    <option disabled selected>Select subDistrict</option>
+                                  </select>
+                            </div>  
+
+                            <div class="col-lg-4">
+                                <button class="btn btn-info btn-block">Search</button>
+                            </div>  
+                        
+                        </div> 
+
+                    </form>
+                </div>
+
+                <br><br>
+
                 <div class="row">
                     <div class="col-md-12 col-sm-12">
                         <div class="sidebar-add">
@@ -810,7 +851,31 @@
 <!-- top-footer-start -->
 <!-- /.top-footer-close -->
 
+<script type="text/javascript">
+    $(document).ready(function() {
+          $('select[name="district_id"]').on('change', function(){
+              var district_id = $(this).val();
+              if(district_id) {
+                  $.ajax({
+                      url: "{{  url('/get/subdistrict/frontend') }}/"+district_id,
+                      type:"GET",
+                      dataType:"json",
+                      success:function(data) {
+                         $("#subdistrict_id").empty();
+                               $.each(data,function(key,value){
+                                   $("#subdistrict_id").append('<option value="'+value.id+'">'+value.subdistrict_en+'</option>');
+                               });
 
+                        console.log(data)
+                      },
+                     
+                  });
+              } else {
+                  alert('danger');
+              }
+          });
+      });
+ </script>
 
 
 @endsection

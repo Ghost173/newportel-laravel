@@ -145,3 +145,11 @@ Route::get('categorypost/{id}/{category_en}', [ExtraController::class, 'category
 
 
 Route::get('subcategorypost/{id}/{subcategory_en}', [ExtraController::class, 'subcategorypost']);
+
+
+# /get/subdistrict/frontend
+
+Route::get('/get/subdistrict/frontend/{district_id}', [ExtraController::class, 'subdisricjs']);
+
+# search by dist
+Route::get('/search/district', [ExtraController::class, 'searchbydis'])->name('searchby.district');

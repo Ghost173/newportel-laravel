@@ -56,4 +56,23 @@ class ExtraController extends Controller
         ->paginate(5);
         return view('main.subpost', compact('subcatpost','subcategory_en')); 
     }
+
+
+    public function subdisricjs($district_id){
+        $subd = DB::table('subdistricts')->where('district_id', $district_id)->get();
+        return response()->json($subd);
+    }
+
+
+    public function searchbydis(Request $request) {
+        $disid = $request->district_id;
+        $subdisid = $request->subdistrict_id;
+
+
+        $catpost = DB::table('posts')->where('district_id',$disid)->where('subdistrict_id',$subdisid)->orderBy('id','desc')
+        ->paginate(50);
+
+        return view('main.search', compact('catpost'));  
+
+    }
 }
