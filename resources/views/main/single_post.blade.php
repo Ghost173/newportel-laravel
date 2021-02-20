@@ -53,6 +53,13 @@
             <!-- ********* -->
             <div class="sharethis-inline-share-buttons"></div>
             <br>
+            <div id="fb-root"></div>
+<script async defer crossorigin="anonymous" 
+src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v9.0&appId=1614358055273573&autoLogAppEvents=1" 
+nonce="IZjPecV4"></script>
+
+<div class="fb-comments" data-href="{{Request::url()}}" data-width="" data-numposts="5"></div>
+
             <br>
 
             @php
