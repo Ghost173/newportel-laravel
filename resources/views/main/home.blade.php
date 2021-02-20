@@ -54,8 +54,17 @@
                 
                 <!-- add-start -->	
                 <div class="row">
+                @php
+                    $hori = DB::table('ads')->where('type',2)->skip(1)->first();
+                @endphp
                     <div class="col-md-12 col-sm-12">
-                        <div class="add"><img src="{{asset('frontend/assets/img/topbanner.jpg')}}" alt="" /></div>
+                        <div class="add">
+                            @if ($hori)
+                            <a href="{{$hori->link}}" target="_blank"> <img src="{{asset($hori->ads)}}" alt="{{$hori->link}}" /> </a>
+                            @else
+                           
+                            @endif
+                        </div>
                     </div>
                 </div><!-- /.add-close -->	
                 
@@ -173,12 +182,38 @@
             </div>
             <div class="col-md-3 col-sm-3">
                 <!-- add-start -->	
+
+                @php
+                $ver2 = DB::table('ads')->where('type',1)->skip(1)->first();
+                @endphp
                 <div class="row">
                     <div class="col-md-12 col-sm-12">
-                        <div class="sidebar-add"><img src="{{asset('frontend/assets/img/midbaner1.jpg')}}" alt="" /></div>
+                        <div class="sidebar-add">
+                            @if ($ver2)
+                            <a href="{{$ver2->link}}" target="_blank"> <img src="{{asset($ver2->ads)}}" alt="{{$ver2->link}}" /> </a>
+                            @else
+                           
+                            @endif
+                        </div>
                     </div>
                 </div><!-- /.add-close -->	
                 
+                <!-- add-start -->	
+
+                @php
+                $ver3 = DB::table('ads')->where('type',1)->skip(2)->first();
+                @endphp
+                <div class="row">
+                    <div class="col-md-12 col-sm-12">
+                        <div class="sidebar-add">
+                            @if ($ver3)
+                            <a href="{{$ver3->link}}" target="_blank"> <img src="{{asset($ver3->ads)}}" alt="{{$ver3->link}}" /> </a>
+                            @else
+                           
+                            @endif
+                        </div>
+                    </div>
+                </div><!-- /.add-close -->	
                 
 
                 @php
@@ -204,15 +239,34 @@
                 
                 <!-- facebook-page-start -->
                 <div class="cetagory-title-03">Facebook </div>
-                <div class="fb-root">
+                <div id="fb-root"></div>
+<script async defer crossorigin="anonymous" 
+src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v9.0&appId=1614358055273573&autoLogAppEvents=1" 
+nonce="5uIgaCia"></script>
+
+<div class="fb-page" 
+data-href="https://www.facebook.com/enakkaka.nee/" 
+data-tabs="" data-width="" data-height="" 
+data-small-header="false" data-adapt-container-width="true" 
+data-hide-cover="false" data-show-facepile="false"><blockquote 
+cite="https://www.facebook.com/enakkaka.nee/" class="fb-xfbml-parse-ignore">
+<a href="https://www.facebook.com/enakkaka.nee/">உனக்கா தான் உயிர் வாழ்கின்றேன்</a></blockquote></div>
+                {{-- <div class="fb-root">
                     facebook page here
-                </div><!-- /.facebook-page-close -->	
+                </div><!-- /.facebook-page-close -->	 --}}
                 
                 <!-- add-start -->	
                 <div class="row">
                     <div class="col-md-12 col-sm-12">
+                        @php
+                             $ver1 = DB::table('ads')->where('type',1)->first();
+                        @endphp
                         <div class="sidebar-add">
-                            <img src="{{asset('frontend/assets/img/midbaner1.jpg')}}" alt="" />
+                             @if ($ver1)
+                            <a href="{{$ver1->link}}" target="_blank"> <img src="{{asset($ver1->ads)}}" alt="{{$ver1->link}}" /> </a>
+                            @else
+                           
+                            @endif
                         </div>
                     </div>
                 </div><!-- /.add-close -->	
@@ -406,12 +460,31 @@
             </div>
         </div>
         <!-- add-start -->	
+    
         <div class="row">
             <div class="col-md-6 col-sm-6">
-                <div class="add"><img src="{{asset('frontend/assets/img/topbanner.jpg')}}" alt="" /></div>
+    @php
+        $hori1 = DB::table('ads')->where('type',2)->skip(2)->first();
+    @endphp
+                <div class="add">
+                    @if ($hori1)
+                    <a href="{{$hori1->link}}" target="_blank"> <img src="{{asset($hori1->ads)}}" alt="{{$hori1->link}}" /> </a>
+                    @else
+                   
+                    @endif
+                </div>
             </div>
             <div class="col-md-6 col-sm-6">
-                <div class="add"><img src="{{asset('frontend/assets/img/topbanner.jpg')}}" alt="" /></div>
+            @php
+                $hori2 = DB::table('ads')->where('type',2)->skip(3)->first();
+            @endphp
+                <div class="add">
+                    @if ($hori2)
+                    <a href="{{$hori2->link}}" target="_blank"> <img src="{{asset($hori2->ads)}}" alt="{{$hori2->link}}" /> </a>
+                    @else
+                   
+                    @endif
+                </div>
             </div>
         </div><!-- /.add-close -->	
         
@@ -542,8 +615,15 @@
 
                 <div class="row">
                     <div class="col-md-12 col-sm-12">
+    @php
+        $hori3 = DB::table('ads')->where('type',2)->skip(3)->first();
+    @endphp
                         <div class="sidebar-add">
-                            <img src="{{asset('frontend/assets/img/topbanner.jpg')}}" alt="" />
+                            @if ($hori3)
+                            <a href="{{$hori3->link}}" target="_blank"> <img src="{{asset($hori3->ads)}}" alt="{{$hori3->link}}" /> </a>
+                            @else
+                           
+                            @endif
                         </div>
                     </div>
                 </div><!-- /.add-close -->	

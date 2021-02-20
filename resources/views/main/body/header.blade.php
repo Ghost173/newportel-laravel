@@ -3,6 +3,8 @@
 
     $social = DB::table('socials')->first();
 
+    $hori = DB::table('ads')->where('type',2)->first();
+
 @endphp
 
 <section class="hdr_section">
@@ -145,7 +147,14 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2">
-                <div class="top-add"><img src="{{asset('frontend/assets/img/topbanner.jpg')}}" alt="dsadsad" /></div>
+                <div class="top-add">
+                    
+                    @if ($hori)
+                    <a href="{{$hori->link}}" target="_blank"> <img src="{{asset($hori->ads)}}" alt="{{$hori->link}}" /> </a>
+                    @else
+                   
+                    @endif
+                </div>
             </div>
         </div>
     </div>
