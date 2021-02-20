@@ -34,13 +34,7 @@
                     
                     </div>
                     <div class="col-md-6 col-sm-6 pull-right"> 						
-                        {{-- <ul class="social-nav">
-                            <li><a href="" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent('#'),'facebook-share-dialog','width=626,height=436'); return false;" target="_blank" title="Facebook" rel="nofollow" class="facebook"><i class="fa fa-facebook"></i></a></li>
-                            <li><a target="_blank" href="" onclick="javascript:window.open('https://twitter.com/share?text=‘#'); return false;" title="Twitter" rel="nofollow" class="twitter"><i class="fa fa-twitter"></i></a></li>
-                            <li><a target="_blank" href="" onclick="window.open('https://plus.google.com/share?url=#'); return false;" title="Google plus" rel="nofollow" class="google"><i class="fa fa-google-plus"></i></a></li>
-                            <li><a href="#" target="_blank" title="Print" rel="nofollow" class="print"><i class="fa fa-print"></i></a></li>
-                    
-                        </ul>						    --}}
+                        <div class="sharethis-inline-share-buttons"></div>
                     </div>						
                 </div>				 
              </div>				
@@ -57,7 +51,7 @@
 
             </div>
             <!-- ********* -->
-
+            <div class="sharethis-inline-share-buttons"></div>
             <br>
             <br>
 
