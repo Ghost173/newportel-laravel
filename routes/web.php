@@ -12,6 +12,7 @@ use App\Http\Controllers\backend\SettingController;
 use App\Http\Controllers\backend\WebsiteController;
 use App\Http\Controllers\backend\PhotoController;
 use App\Http\Controllers\frontend\ExtraController;
+use App\Http\Controllers\backend\AdsController;
 
 
 /*
@@ -153,3 +154,9 @@ Route::get('/get/subdistrict/frontend/{district_id}', [ExtraController::class, '
 
 # search by dist
 Route::get('/search/district', [ExtraController::class, 'searchbydis'])->name('searchby.district');
+
+#ads backend
+Route::get('/ist/ads', [AdsController::class, 'listads'])->name('list.ad');
+Route::get('/add/ads', [AdsController::class, 'addads'])->name('add.ads');
+
+Route::post('/store/ads', [AdsController::class, 'storeads'])->name('store.ads');
