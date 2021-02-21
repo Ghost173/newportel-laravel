@@ -13,6 +13,7 @@ use App\Http\Controllers\backend\WebsiteController;
 use App\Http\Controllers\backend\PhotoController;
 use App\Http\Controllers\frontend\ExtraController;
 use App\Http\Controllers\backend\AdsController;
+use App\Http\Controllers\backend\RoleController;
 
 
 /*
@@ -160,3 +161,7 @@ Route::get('/ist/ads', [AdsController::class, 'listads'])->name('list.ad');
 Route::get('/add/ads', [AdsController::class, 'addads'])->name('add.ads');
 
 Route::post('/store/ads', [AdsController::class, 'storeads'])->name('store.ads');
+
+#user roles
+Route::get('/add/user', [RoleController::class, 'adduser'])->name('add.user');
+Route::post('/store/user', [RoleController::class, 'storeuser'])->name('store.user');
