@@ -3,6 +3,8 @@
 
     $social = DB::table('socials')->first();
 
+    $hori = DB::table('ads')->where('type',2)->first();
+
 @endphp
 
 <section class="hdr_section">
@@ -30,7 +32,7 @@
                             <div id="navbarCollapse" class="collapse navbar-collapse">
                                 <ul class="nav navbar-nav">
 
-                                    <li><a href="#">HOME</a></li>
+                                    <li><a href="{{URL::to('/')}}">HOME</a></li>
 
                                 {{-- @if ($category) --}}
                                 @foreach ($category as $row)
@@ -40,7 +42,7 @@
                                 @endphp
 
                                 <li class="dropdown">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    <a href="{{URL::to('categorypost/'.$row->id.'/'.$row->category_en)}}" >
                                         @if(session()->get('lang')== 'tamil')
                                         {{$row->category_ta}}
                                         @else
@@ -51,7 +53,7 @@
                                     
                                 <ul class="dropdown-menu">
                                     @foreach ($subcat as $item)
-                                    <li><a href="#">
+                                    <li><a href="{{URL::to('subcategorypost/'.$item->id.'/'.$item->subcategory_en)}}">
                                         
                                         @if(session()->get('lang') == 'tamil')
                                         {{$item->subcategory_ta}}
@@ -145,7 +147,14 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2">
-                <div class="top-add"><img src="{{asset('frontend/assets/img/topbanner.jpg')}}" alt="dsadsad" /></div>
+                <div class="top-add">
+                    
+                    @if ($hori)
+                    <a href="{{$hori->link}}" target="_blank"> <img src="{{asset($hori->ads)}}" alt="{{$hori->link}}" /> </a>
+                    @else
+                   
+                    @endif
+                </div>
             </div>
         </div>
     </div>

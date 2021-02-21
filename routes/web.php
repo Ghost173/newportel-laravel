@@ -12,6 +12,7 @@ use App\Http\Controllers\backend\SettingController;
 use App\Http\Controllers\backend\WebsiteController;
 use App\Http\Controllers\backend\PhotoController;
 use App\Http\Controllers\frontend\ExtraController;
+use App\Http\Controllers\backend\AdsController;
 
 
 /*
@@ -133,12 +134,29 @@ Route::post('video/edit/{id}', [PhotoController::class, 'updateviedo'])->name('u
 Route::get('delete/video/{id}', [PhotoController::class, 'deletedelete'])->name('delete.video');
 
 
-
-
-
-
-
-
 ///frornt end
 Route::get('lang/tamil', [ExtraController::class, 'tamil'])->name('lang.tamil');
 Route::get('lang/english', [ExtraController::class, 'english'])->name('lang.english');
+
+//f single post view
+
+Route::get('view/post/{id}', [ExtraController::class, 'singlepost'])->name('single.post');
+
+Route::get('categorypost/{id}/{category_en}', [ExtraController::class, 'categorypost']);
+
+
+Route::get('subcategorypost/{id}/{subcategory_en}', [ExtraController::class, 'subcategorypost']);
+
+
+# /get/subdistrict/frontend
+
+Route::get('/get/subdistrict/frontend/{district_id}', [ExtraController::class, 'subdisricjs']);
+
+# search by dist
+Route::get('/search/district', [ExtraController::class, 'searchbydis'])->name('searchby.district');
+
+#ads backend
+Route::get('/ist/ads', [AdsController::class, 'listads'])->name('list.ad');
+Route::get('/add/ads', [AdsController::class, 'addads'])->name('add.ads');
+
+Route::post('/store/ads', [AdsController::class, 'storeads'])->name('store.ads');

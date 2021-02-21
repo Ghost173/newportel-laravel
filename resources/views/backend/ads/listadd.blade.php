@@ -30,11 +30,11 @@
     <div class="col-lg-12 grid-margin stretch-card">
         <div class="card">
           <div class="card-body">
-            <h4 class="card-title">Gallery Page</h4>
+            <h4 class="card-title">Ads Page</h4>
 
             <div class="template-demo">
-                <a href="{{route('add.photo')}}">
-                    <button type="button" class="btn btn-primary btn-rounded btn-fw" style="float: right;">Add photo</button>
+                <a href="{{route('add.ads')}}">
+                    <button type="button" class="btn btn-primary btn-rounded btn-fw" style="float: right;">Add Ads</button>
                 </a>
             </div>
         
@@ -43,7 +43,7 @@
                 <thead>
                   <tr>
                     <th> # </th>
-                    <th>Title</th>
+                    <th>link</th>
                     <th> Image </th>
                     <th> type </th>
                     <th> Action </th>
@@ -53,16 +53,16 @@
                 
                 <tbody>
                   @php ($i = 1)
-                    @foreach ($photo as $img)
+                    @foreach ($ads as $img)
                         <tr>
                         <td> {{$i++}} </td>
-                        <td> {{$img->title}} </td>
-                        <td> <img src="{{asset($img->photo)}}" style="width: 50px; height: 50px;" ></td>
+                        <td> {{$img->link}} </td>
+                        <td> <img src="{{asset($img->ads)}}" style="width: 100px; height: 80px;" ></td>
                         <td> 
-                            @if($img->type ==1)
-                            <span class="badge badge-success">big photo</span>
+                            @if($img->type == 2)
+                            <span class="badge badge-success">horizontal</span>
                             @else
-                            <span class="badge badge-info">small photo</span>
+                            <span class="badge badge-info">vertical</span>
                             @endif
                         </td>
                         <td> 
@@ -74,7 +74,7 @@
                     @endforeach
                 </tbody>
               </table>
-              {{$photo->links('pagination-link')}}
+              {{-- {{$ads->links('pagination-link')}} --}}
             </div>
           </div>
         </div>
