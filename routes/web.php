@@ -165,3 +165,4 @@ Route::post('/store/ads', [AdsController::class, 'storeads'])->name('store.ads')
 #user roles
 Route::get('/add/user', [RoleController::class, 'adduser'])->name('add.user');
 Route::post('/store/user', [RoleController::class, 'storeuser'])->name('store.user');
+Route::get('/all/user', [RoleController::class, 'alluser'])->name('all.user');

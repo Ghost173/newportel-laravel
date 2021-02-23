@@ -42,4 +42,10 @@ class RoleController extends Controller
         // return response()->json($data);
     }
 
+
+    public function alluser() {
+        $user = DB::table('users')->where('type',0)->get();    
+        return view('backend.roles.index',compact('user'));
+    }
+
 }
