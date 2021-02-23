@@ -12,6 +12,10 @@ use Illuminate\Support\Carbon;
 
 class PostController extends Controller
 {
+    public function __construct() {
+        $this->middleware('auth');
+    }
+
     public function index() {
         $category = DB::table('categories')->get();
         $district = DB::table('districts')->get();

@@ -93,7 +93,7 @@
                         
                         </td>
                         <td> 
-                            <a href="{{route('edit.category', $row->id)}}" class="btn btn-info">Edit</a>
+                            <a href="{{route('edit.user', $row->id)}}" class="btn btn-info">Edit</a>
                             <a href="{{route('delete.category', $row->id)}}" class="btn btn-danger" onclick="return confirm('Are you sure to delete?')">Delete</a>
 
                         </td>
