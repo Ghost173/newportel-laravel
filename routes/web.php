@@ -14,6 +14,10 @@ use App\Http\Controllers\backend\PhotoController;
 use App\Http\Controllers\frontend\ExtraController;
 use App\Http\Controllers\backend\AdsController;
 use App\Http\Controllers\backend\RoleController;
+use App\Http\Controllers\backend\WebsiteStController;
+
+
+
 
 
 /*
@@ -168,3 +172,7 @@ Route::post('/store/user', [RoleController::class, 'storeuser'])->name('store.us
 Route::get('/all/user', [RoleController::class, 'alluser'])->name('all.user');
 Route::get('/user/edit/{id}', [RoleController::class, 'edituser'])->name('edit.user');
 Route::post('/user/update/{id}', [RoleController::class, 'updateuser'])->name('update.user');
+
+
+#website settings
+Route::get('/web/setting', [WebsiteStController::class, 'webseting'])->name('web.setting');

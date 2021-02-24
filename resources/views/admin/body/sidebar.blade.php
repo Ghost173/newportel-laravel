@@ -141,6 +141,7 @@
       <li class="nav-item"> <a class="nav-link" href="{{route('item.setting')}}">Items settings </a></li>
       <li class="nav-item"> <a class="nav-link" href="{{route('livetv.setting')}}">LiveTv settings </a></li>
       <li class="nav-item"> <a class="nav-link" href="{{route('notice.setting')}}">notic settings </a></li>
+      <li class="nav-item"> <a class="nav-link" href="{{route('web.setting')}}">Website settings </a></li>
     </ul>
   </div>
 </li>
