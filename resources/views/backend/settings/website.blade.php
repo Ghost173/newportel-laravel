@@ -33,10 +33,10 @@
         <div class="card">
           <div class="card-body">
             <h4 class="card-title">Website Settings</h4>
-            <form class="forms-sample" method="POST" action="{{route('update.seo', $webseng->id)}}">
-
+            <form class="forms-sample" method="POST" enctype="multipart/form-data" action="{{route('update.website', $webseng->id)}}">
+              @csrf
               <div class="form-group">
-                  @csrf
+                  
                 <label for="exampleInputUsername1">	phone</label>
                 <input type="text" class="form-control" name="phone" value="{{$webseng->phone}}" >
                 @error('phone')
@@ -45,7 +45,7 @@
               </div>
 
               <div class="form-group">
-                @csrf
+                
               <label for="exampleInputUsername1">email</label>
               <input type="text" class="form-control" name="email" value="{{$webseng->email}}" >
               @error('email')
@@ -55,9 +55,9 @@
 
 
             <div class="form-group">
-                @csrf
-              <label for="exampleInputUsername1">address</label>
-              <textarea class="form-control" name="details_en" id="summernote">{{$webseng->address}}</textarea>
+                
+              <label for="exampleInputUsername1">	address</label>
+              <textarea class="form-control" name="address" id="summernote">{{$webseng->address}}</textarea>
               @error('address')
                   <span class="text text-danger">{{$message}}</span>
               @enderror
@@ -68,7 +68,7 @@
 
                 <div class="form-group col-md-6" >
                   <label for="exampleInputName1">Logo</label>
-                  <input type="file" name="image" class="form-control-file" id="exampleFormControlFile1">
+                  <input type="file" name="logo" class="form-control-file" id="exampleFormControlFile1">
                   @error('title_en')
                     <span class="text text-danger">{{$message}}</span>
                     @enderror
@@ -76,7 +76,7 @@
                 {{-- {{URL::to($website->logo)}} --}}
                 <div class="form-group col-md-6">
                   <label for="exampleInputName1">Old image</label>
-                  <img src="" style="width: 70px; height: 50px">
+                  <img src="{{asset($webseng->logo)}}" style="width: 70px; height: 50px">
                   <input type="hidden" name="oldimage" value="{{$webseng->logo}}">
                 </div>
 
