@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="{{asset('backend/assets/css/style.css')}}">
     <!-- End layout styles -->
     <link rel="shortcut icon" href="{{asset('backend/assets/images/favicon.png')}}" />
+    <script src="https://www.google.com/recaptcha/api.js"></script>
   </head>
   <body>
     <div class="container-scroller">
@@ -45,6 +46,14 @@
                     <label>password_confirmation</label>
                     <input type="password" class="form-control p_input" id="password_confirmation" name="password_confirmation">
                   </div>
+
+                  <div class="form-group">
+                    <div class="g-recaptcha" data-sitekey="6Lc5GlgaAAAAAIxXrZ3899ZZn96_Z2kWXEDj_VoE"></div>
+                    @if($errors->has('g-recaptcha-response'))
+                    <span class="text text-dander"> {{$errors->first('g-recaptcha-response')}}</span>
+                    @endif
+                  </div>
+
                   <div class="form-group d-flex align-items-center justify-content-between">
                     <div class="form-check">
                       <label class="form-check-label">

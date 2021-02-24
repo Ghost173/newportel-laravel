@@ -39,7 +39,7 @@
                   </div>
 
                   <div class="form-group">
-                    <div class="g-recaptcha" data-sitekey="6LfeGFgaAAAAAE5hE6lnLJPkWALuScaVvGJVDLuW"></div>
+                    <div class="g-recaptcha" data-sitekey="6Lc5GlgaAAAAAIxXrZ3899ZZn96_Z2kWXEDj_VoE"></div>
                     @if($errors->has('g-recaptcha-response'))
                     <span class="text text-dander"> {{$errors->first('g-recaptcha-response')}}</span>
                     @endif
