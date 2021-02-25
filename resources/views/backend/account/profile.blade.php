@@ -39,7 +39,7 @@
             <a href="{{route('profile.edit')}}"  class="btn btn-success" style="float: right;">Edit profile</a>
 
                 <div class="card" style="width: 18rem;">
-                    <img class="card-img-top" src="{{asset('backend/assets/images/faces/face15.jpg')}}" alt="Card image cap">
+                    <img class="card-img-top" src="{{(!empty($editdata->image))?url('upload/userprofile/'.$editdata->image): url('upload/noimg.png')}}" alt="Card image cap">
                     <div class="card-body">
                     <h5 class="card-title">User Name: {{ Auth::user()->name }}</h5>
                     <p class="card-text">User Email: {{ Auth::user()->email }}</p>

@@ -181,5 +181,5 @@ Route::post('/website/update/{id}', [WebsiteStController::class, 'updatewebs'])-
 
 #account setting 
 Route::get('/account/setting', [AdminController::class, 'accountsetting'])->name('account.setting');
-
 Route::get('/profile/edit', [AdminController::class, 'profileedit'])->name('profile.edit');
+Route::post('/profile/store', [AdminController::class, 'profilestore'])->name('store.profiledata');

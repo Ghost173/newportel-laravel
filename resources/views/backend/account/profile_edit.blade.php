@@ -36,7 +36,7 @@
           <div class="card-body">
             <h4 class="card-title">profile Update</h4>
 
-            <form class="forms-sample" method="POST" enctype="multipart/form-data" action="{{route('store.ads')}}" >
+            <form class="forms-sample" method="POST" enctype="multipart/form-data" action="{{route('store.profiledata')}}" >
               @csrf
               
 
@@ -51,7 +51,7 @@
 
                 <div class="form-group col-md-12">
                     <label for="exampleInputName1">User email</label>
-                    <input type="text" class="form-control"  name="email" style="color:white;" value="{{$editdata->email}}">
+                    <input type="email" class="form-control" style="color:black;" value="{{$editdata->email}}" disabled>
                     @error('email')
                     <span class="text text-danger">{{$message}}</span>
                     @enderror
