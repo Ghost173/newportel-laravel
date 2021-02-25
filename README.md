@@ -21,7 +21,6 @@
 ![Project Logo](/screenshots/56.png)
 ![Project Logo](/screenshots/8.png)
 ![Project Logo](/screenshots/9.png)
-![Project Logo](/screenshots/10.png)
 ![Project Logo](/screenshots/11.png)
 ![Project Logo](/screenshots/12.png)
 ![Project Logo](/screenshots/13.png)
