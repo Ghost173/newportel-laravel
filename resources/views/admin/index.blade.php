@@ -26,6 +26,15 @@
         </div>
       </div>
     </div>
+
+    @php
+        $category = DB::table('categories')->get();
+        $subcat = DB::table('sub_categories')->get();
+        $post = DB::table('posts')->get();
+        $ads = DB::table('ads')->get();
+    @endphp
+
+
     <div class="row">
       <div class="col-xl-3 col-sm-6 grid-margin stretch-card">
         <div class="card">
@@ -33,8 +42,8 @@
             <div class="row">
               <div class="col-9">
                 <div class="d-flex align-items-center align-self-start">
-                  <h3 class="mb-0">$12.34</h3>
-                  <p class="text-success ml-2 mb-0 font-weight-medium">+3.5%</p>
+                  <h3 class="mb-0">{{count($category)}}</h3>
+                  <p class="text-success ml-2 mb-0 font-weight-medium">Category</p>
                 </div>
               </div>
               <div class="col-3">
@@ -43,7 +52,7 @@
                 </div>
               </div>
             </div>
-            <h6 class="text-muted font-weight-normal">Potential growth</h6>
+            <h6 class="text-muted font-weight-normal">Category</h6>
           </div>
         </div>
       </div>
@@ -53,8 +62,8 @@
             <div class="row">
               <div class="col-9">
                 <div class="d-flex align-items-center align-self-start">
-                  <h3 class="mb-0">$17.34</h3>
-                  <p class="text-success ml-2 mb-0 font-weight-medium">+11%</p>
+                  <h3 class="mb-0">{{count($subcat)}}</h3>
+                  <p class="text-success ml-2 mb-0 font-weight-medium">SubCategory</p>
                 </div>
               </div>
               <div class="col-3">
@@ -63,7 +72,7 @@
                 </div>
               </div>
             </div>
-            <h6 class="text-muted font-weight-normal">Revenue current</h6>
+            <h6 class="text-muted font-weight-normal">Sub Category</h6>
           </div>
         </div>
       </div>
@@ -73,17 +82,17 @@
             <div class="row">
               <div class="col-9">
                 <div class="d-flex align-items-center align-self-start">
-                  <h3 class="mb-0">$12.34</h3>
-                  <p class="text-danger ml-2 mb-0 font-weight-medium">-2.4%</p>
+                  <h3 class="mb-0">{{count($post)}}</h3>
+                  <p class="text-success ml-2 mb-0 font-weight-medium">post</p>
                 </div>
               </div>
               <div class="col-3">
-                <div class="icon icon-box-danger">
-                  <span class="mdi mdi-arrow-bottom-left icon-item"></span>
+                <div class="icon icon-box-success">
+                  <span class="mdi mdi-arrow-top-right icon-item"></span>
                 </div>
               </div>
             </div>
-            <h6 class="text-muted font-weight-normal">Daily Income</h6>
+            <h6 class="text-muted font-weight-normal">Posts</h6>
           </div>
         </div>
       </div>
@@ -93,8 +102,8 @@
             <div class="row">
               <div class="col-9">
                 <div class="d-flex align-items-center align-self-start">
-                  <h3 class="mb-0">$31.53</h3>
-                  <p class="text-success ml-2 mb-0 font-weight-medium">+3.5%</p>
+                  <h3 class="mb-0">{{count($ads)}}</h3>
+                  <p class="text-success ml-2 mb-0 font-weight-medium">ads</p>
                 </div>
               </div>
               <div class="col-3">
@@ -103,12 +112,14 @@
                 </div>
               </div>
             </div>
-            <h6 class="text-muted font-weight-normal">Expense current</h6>
+            <h6 class="text-muted font-weight-normal">ADS</h6>
           </div>
         </div>
       </div>
     </div>
     
+
+
     <div class="row">
       <div class="col-sm-4 grid-margin">
         <div class="card">

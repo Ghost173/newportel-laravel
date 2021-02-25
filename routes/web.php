@@ -13,6 +13,11 @@ use App\Http\Controllers\backend\WebsiteController;
 use App\Http\Controllers\backend\PhotoController;
 use App\Http\Controllers\frontend\ExtraController;
 use App\Http\Controllers\backend\AdsController;
+use App\Http\Controllers\backend\RoleController;
+use App\Http\Controllers\backend\WebsiteStController;
+
+
+
 
 
 /*
@@ -160,3 +165,26 @@ Route::get('/ist/ads', [AdsController::class, 'listads'])->name('list.ad');
 Route::get('/add/ads', [AdsController::class, 'addads'])->name('add.ads');
 
 Route::post('/store/ads', [AdsController::class, 'storeads'])->name('store.ads');
+
+#user roles
+Route::get('/add/user', [RoleController::class, 'adduser'])->name('add.user');
+Route::post('/store/user', [RoleController::class, 'storeuser'])->name('store.user');
+Route::get('/all/user', [RoleController::class, 'alluser'])->name('all.user');
+Route::get('/user/edit/{id}', [RoleController::class, 'edituser'])->name('edit.user');
+Route::post('/user/update/{id}', [RoleController::class, 'updateuser'])->name('update.user');
+
+
+#website settings
+Route::get('/web/setting', [WebsiteStController::class, 'webseting'])->name('web.setting');
+Route::post('/website/update/{id}', [WebsiteStController::class, 'updatewebs'])->name('update.website');
+
+
+#account setting 
+Route::get('/account/setting', [AdminController::class, 'accountsetting'])->name('account.setting');
+Route::get('/profile/edit', [AdminController::class, 'profileedit'])->name('profile.edit');
+Route::post('/profile/store', [AdminController::class, 'profilestore'])->name('store.profiledata');
+
+
+#password   
+Route::get('profile/password', [AdminController::class, 'showpassword'])->name('show.password');
+Route::post('chnage/password', [AdminController::class, 'changepassword'])->name('change.password');
