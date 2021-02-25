@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 
 class AdminController extends Controller
@@ -58,5 +59,37 @@ class AdminController extends Controller
         );
         return redirect()->route('account.setting')->with($notification );
      
+    }
+
+
+    public function showpassword() {
+        return view('backend.account.show_password');
+    }
+
+
+    public function changepassword(Request $request) {
+        $validated = $request->validate([
+            'oldpassword' => 'required',
+            'password' => 'required|confirmed',
+        ]);
+
+        $haspassword = Auth::user()->password;
+
+        if(Hash::check($request->oldpassword,$haspassword)) {
+            $user = user::find(Auth::id());
+            $user->password = Hash::make($request->password);
+            $user->save();
+            Auth::logout();
+
+
+
+            $notification = array(
+                'message' => 'password change successfully',
+                'alert-type' => 'success'
+            );
+            return redirect()->route('login')->with($notification );
+        } else {
+            return redirect()->back();
+        }
     }
 }

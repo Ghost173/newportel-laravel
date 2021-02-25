@@ -183,3 +183,8 @@ Route::post('/website/update/{id}', [WebsiteStController::class, 'updatewebs'])-
 Route::get('/account/setting', [AdminController::class, 'accountsetting'])->name('account.setting');
 Route::get('/profile/edit', [AdminController::class, 'profileedit'])->name('profile.edit');
 Route::post('/profile/store', [AdminController::class, 'profilestore'])->name('store.profiledata');
+
+
+#password   
+Route::get('profile/password', [AdminController::class, 'showpassword'])->name('show.password');
+Route::post('chnage/password', [AdminController::class, 'changepassword'])->name('change.password');
