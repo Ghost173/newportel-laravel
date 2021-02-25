@@ -1,4 +1,8 @@
 
+@php
+    $editdata = DB::table('users')->where('id',Auth::user()->id)->first();
+@endphp
+
 
 <nav class="sidebar sidebar-offcanvas" id="sidebar">
     <div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
@@ -10,7 +14,7 @@
         <div class="profile-desc">
           <div class="profile-pic">
             <div class="count-indicator">
-              <img class="img-xs rounded-circle " src="{{asset('backend/assets/images/faces/face15.jpg')}}" alt="">
+              <img class="img-xs rounded-circle " src="{{(!empty($editdata->image))?url('upload/userprofile/'.$editdata->image): url('upload/noimg.png')}}" alt="">
               <span class="count bg-success"></span>
             </div>
             <div class="profile-name">
