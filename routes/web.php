@@ -177,3 +177,9 @@ Route::post('/user/update/{id}', [RoleController::class, 'updateuser'])->name('u
 #website settings
 Route::get('/web/setting', [WebsiteStController::class, 'webseting'])->name('web.setting');
 Route::post('/website/update/{id}', [WebsiteStController::class, 'updatewebs'])->name('update.website');
+
+
+#account setting 
+Route::get('/account/setting', [AdminController::class, 'accountsetting'])->name('account.setting');
+
+Route::get('/profile/edit', [AdminController::class, 'profileedit'])->name('profile.edit');
